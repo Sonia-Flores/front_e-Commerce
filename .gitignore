@@ -40,3 +40,10 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Ignore image files
+*.jpg
+*.jpeg
+*.png
+*.gif
+
