@@ -1,0 +1,22 @@
+nav {
+    background-color: white;
+}
+
+a:hover {
+    color: #0D1B2A;
+    font-weight: 600;
+}
+
+/* TODO: active class - CSS
+.active {
+    color: tomato;
+} */
+
+ul {
+    align-items: center;
+}
+
+.cart-icon:hover {
+    background-color: #0D1B2A;
+    color: white;
+}
