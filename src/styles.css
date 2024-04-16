@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    /* Fonts */
+    --mainFont: 'Roboto', sans-serif;
+
+    /* Colors */
+    --darkColor: #0D1B2A;
+    --darkBlue: #1B263B;
+    --midBlue: #1B263B;
+    --lightBlue: #778DA9;
+    --lightColor: #E0E1DD;
+}
+
+/* priceP used at card-product and detail */
+.priceP {
+    color: var(--lightBlue);
+    font-weight: 300;
+}
