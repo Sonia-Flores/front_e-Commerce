@@ -1,0 +1,39 @@
+<nav-bar></nav-bar>
+
+<div class="body">
+    <div class="container mb-2">
+
+
+        <div class="mb-3">
+            <div class="row pt-3 ">
+                <h1 class="mt-5">Log in and join the fashion.</h1>
+                <form class="miForm col-12 col-md-6 mt-5"  [formGroup]="formularioLogin" (ngSubmit)="onSubmit()">
+
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input placeholder="Please enter your email here." class="form-control" formControlName="email" />
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input placeholder="Please enter your personal password here." class="form-control"
+                            formControlName="password" />
+
+                    </div>
+
+                    <input type="Submit" value="Send" class="btn" [disabled]="!formularioLogin.valid">
+
+                </form>
+
+                <div class="col-md-5 d-none d-md-block justify-content-end miLoginFoto ">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<app-footer></app-footer>
