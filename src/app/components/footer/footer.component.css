@@ -5,25 +5,33 @@
 .footerInit {
     font-weight: lighter;
     font-family: 'Roboto';
-    padding-bottom: 1.875rem;
+    padding-bottom: 1rem;
+
 
 
     & h5 {
         font-weight: bold;
         color: black;
-        padding-bottom: 1.25rem;
+        padding-bottom: 0.75rem;
     }
 
     & span {
         font-size: 1.5625rem;
+    }
+
+    & input {
+        max-width: 80%;
     }
 }
 
 
 .footerInput {
     border: none;
-    border-bottom: 0.0625rem solid black;
+    /* border-bottom: 0.0625rem solid black; */
+    padding-right: 0px;
 }
+
+
 
 .inputSpan {
     font-weight: bold;
@@ -35,9 +43,9 @@
     font-family: 'Roboto';
     display: flex;
     flex-direction: row;
-    padding-top: 1.875rem;
+    padding-top: 0.75rem;
     align-items: center;
-
+    padding-right: 0;
     & div {
         width: 25%;
 

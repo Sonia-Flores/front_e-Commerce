@@ -1,5 +1,8 @@
 
 
+h1 {
+    font-family: 'Roboto';
+}
 
 .miForm {
 
@@ -36,10 +39,10 @@
 
 .miFoto {
     background-image: url(../../../assets/images/The\ 13\ best\ vintage\ shops\ in\ London.jpeg);
+    background-size: cover;
     max-width: 100%;
-    max-height: 580px;
+    max-height: 900px;
     margin: 0 auto;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
