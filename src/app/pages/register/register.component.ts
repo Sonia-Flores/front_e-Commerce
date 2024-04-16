@@ -4,13 +4,14 @@ import { Router } from '@angular/router';
 import { UsuariosService } from '../../services/usuarios.service';
 import Swal from 'sweetalert2';
 import { FooterComponent } from "../../components/footer/footer.component";
+import { NavBarComponent } from "../../shared/components/nav-bar/nav-bar.component";
 
 @Component({
     selector: 'app-register',
     standalone: true,
     templateUrl: './register.component.html',
     styleUrl: './register.component.css',
-    imports: [FormsModule, ReactiveFormsModule, FooterComponent]
+    imports: [FormsModule, ReactiveFormsModule, FooterComponent, NavBarComponent]
 })
 export class RegisterComponent {
 
