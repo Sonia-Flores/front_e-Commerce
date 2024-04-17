@@ -50,6 +50,7 @@ export class UpdateProductComponent {
       try {
         const response = await this.productService.create(this.formularioUpdate.value);  //Método de prueba a espera de poner el correspondiente
         this.formularioUpdate.reset();
+        // this.router.navigateByUrl('/');    //A espera de linckar correctamente con el detalle de producto.
       } catch (error) {
         Swal.fire('Error', 'Se ha producido un error: ');
         this.formularioUpdate.reset();
