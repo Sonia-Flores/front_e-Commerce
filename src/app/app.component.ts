@@ -12,13 +12,14 @@ import { LoginComponent } from './pages/login/login.component';
 import { CardProductComponent } from './components/products/card-product/card-product.component';
 import { ListProductComponent } from './components/products/list-product/list-product.component';
 import { ProductCreationComponent } from "./pages/product-creation/product-creation.component";
+import { UpdateProductComponent } from './pages/update-product/update-product.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [RouterOutlet, FooterComponent, NavBarComponent, HeroComponent, CardProductComponent, ListProductComponent, SpacerComponent, RegisterComponent, LoginComponent, ProductCreationComponent]
+    imports: [RouterOutlet, FooterComponent, NavBarComponent, HeroComponent, CardProductComponent, ListProductComponent, SpacerComponent, RegisterComponent, LoginComponent, ProductCreationComponent, UpdateProductComponent]
 })
 export class AppComponent {
   title = 'front_e-Commerce';
