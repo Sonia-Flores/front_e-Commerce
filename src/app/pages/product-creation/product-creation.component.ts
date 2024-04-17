@@ -36,9 +36,11 @@ export class ProductCreationComponent {
           Validators.required,
         ]),
 
-        featured: new FormControl(),
+        featured: new FormControl(0,
+          [Validators.required,
+          ]),
 
-        categories: new FormControl(null, [
+        categories_id: new FormControl(null, [
           Validators.required,
         ]),
 
@@ -47,17 +49,15 @@ export class ProductCreationComponent {
   }
   
   async onSubmit() {
-    if (this.formularioCreate.valid) {
+   
       try {
-        const response = await this.productService.create(this.formularioCreate.value);  //Método de prueba a espera de poner el correspondiente
+        const response = await this.productService.create(this.formularioCreate.value); 
+        Swal.fire('Success', `Se ha añadido ${this.formularioCreate.value.title} a la base de datos.`)
         this.formularioCreate.reset();
       } catch (error) {
-        Swal.fire('Error', 'Se ha producido un error: ');
-        this.formularioCreate.reset();
+        Swal.fire('Error', 'Se ha producido un error: '); 
       }
-    } else {
-      Swal.fire('Error', 'Please complete the form correctly.', 'error');
-    }
+    
   }
 
 }

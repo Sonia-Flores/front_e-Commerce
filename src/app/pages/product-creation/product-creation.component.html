@@ -1,5 +1,3 @@
-
-
 <div class="body">
     <div class="container">
 
@@ -10,13 +8,15 @@
                 <form class="miForm col-12 col-md-6 mt-5" [formGroup]="formularioCreate" (ngSubmit)="onSubmit()">
                     <div class="mb-3">
                         <label class="form-label">Title</label>
-                        <input type="text" class="form-control" placeholder="Please enter your name here." formControlName="title" />
+                        <input type="text" class="form-control" placeholder="Please enter your name here."
+                            formControlName="title" />
 
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Description</label>
-                        <textarea class="form-control" placeholder="Please enter the title here." formControlName="description" ></textarea>
+                        <textarea class="form-control" placeholder="Please enter the title here."
+                            formControlName="description"></textarea>
 
 
                     </div>
@@ -29,21 +29,22 @@
 
                     <div class="mb-3">
                         <label class="form-label">image</label>
-                        <input placeholder="Please enter the image here." class="form-control" formControlName="image" />
+                        <input placeholder="Please enter the image here." class="form-control"
+                            formControlName="image" />
 
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Featured</label>
-                        <input type="number" min="0" max="1" step="any" class="form-control" formControlName="featured" />
+                        <input type="number" min="0" max="1" step="any" class="form-control"
+                            formControlName="featured" />
 
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">categories</label>
-                        <input type="number" min="0" step="1" class="form-control"
-                        formControlName="categories" />
-                    
+                        <input type="number" min="0" step="1" class="form-control" formControlName="categories_id" />
+
                     </div>
 
                     <input type="Submit" value="Send" class="btn" [disabled]="!formularioCreate.valid">

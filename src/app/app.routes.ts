@@ -3,6 +3,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ProductCreationComponent } from './pages/product-creation/product-creation.component';
 
 
 export const routes: Routes = [
@@ -10,9 +11,12 @@ export const routes: Routes = [
 
     { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: 'home', component: HomeComponent },
+
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
 
+    { path: 'products/new', component: ProductCreationComponent },
+    
 
 
     // api/users/register (@Cristian)
