@@ -22,4 +22,10 @@ export class UsuariosService {
     )
   }
 
+  login(body: any) {
+    return firstValueFrom(
+      this.httpClient.post(`${this.baseUrl}/login`, body)
+    )
+  }
+
 }

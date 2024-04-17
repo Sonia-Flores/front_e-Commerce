@@ -35,11 +35,19 @@ export class LoginComponent {
   async onSubmit() {
     if (this.formularioLogin.valid) {
       try {
-        const response = await this.usuarioService.create(this.formularioLogin.value);  //A la espera del método
-        this.formularioLogin.reset();
-        // this.router.navigateByUrl('/home');    //A espera de linckar correctamente
+        const response: any = await this.usuarioService.login(this.formularioLogin.value);  
+
+        if (response.success) {
+          Swal.fire('Success', 'Bienvenido.');
+          this.formularioLogin.reset();
+          this.router.navigateByUrl('/home');
+          return
+        } else {
+        Swal.fire('Error', 'Se ha producido un error.');
+          this.formularioLogin.reset();
+        }
       } catch (error) {
-        Swal.fire('Error', 'Se ha producido un error: ');
+        Swal.fire('Error', 'Se ha producido un error.');
         this.formularioLogin.reset();
       }
     } else {
