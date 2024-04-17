@@ -1,10 +1,12 @@
 import { Routes } from '@angular/router';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 
 
 export const routes: Routes = [
     // HOME index.html
 
-    { path: '', pathMatch: 'full', redirectTo: '/index.html' },
+    
+    { path: 'product/:idproduct', component: ProductDetailComponent }
 
     // api/users/register (@Cristian)
     // api/users/login (@Cristian)
