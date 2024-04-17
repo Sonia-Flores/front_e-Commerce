@@ -40,6 +40,9 @@ export class RegisterComponent {
         password: new FormControl(null, [
           Validators.required,
         ]),
+        role: new FormControl('user', [
+          Validators.required,
+        ]),
 
       });
 
@@ -48,11 +51,18 @@ export class RegisterComponent {
   async onSubmit() {
     if (this.formulario.valid) {
       try {
-        const response = await this.usuarioService.create(this.formulario.value);  //Método de prueba a espera de poner el correspondiente
+        const response: any = await this.usuarioService.create(this.formulario.value);  
+        
+        if (response.fatal) {
+          Swal.fire('Error', `Este usuario ya existe.`);
+          return;
+        } else {
+          Swal.fire(`El Usuario ${response.name} se ha registrado.`)
+        }
         this.formulario.reset();
-        // this.router.navigateByUrl('/home');    //A espera de linckar correctamente
+        this.router.navigateByUrl('/login');  
       } catch (error) {
-        Swal.fire('Error', 'Se ha producido un error: ');
+        Swal.fire('Error', 'Se ha producido un error.');
         this.formulario.reset();
       }
     } else {
