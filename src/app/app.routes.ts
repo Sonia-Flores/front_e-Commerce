@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProductCreationComponent } from './pages/product-creation/product-creation.component';
+import { UpdateProductComponent } from './pages/update-product/update-product.component';
 
 
 export const routes: Routes = [
@@ -16,8 +17,11 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
 
     { path: 'products/new', component: ProductCreationComponent },
-    
+    { path: 'products/:product_id', component: UpdateProductComponent },
 
+    { path: '**', redirectTo: 'home' }
+    
+    
 
     // api/users/register (@Cristian)
     // api/users/login (@Cristian)
@@ -25,8 +29,6 @@ export const routes: Routes = [
     // api/categories/:categoryId
     // api/products/favorites
     // api/products/featured
-
-    // {path: 'products/:productId', component: DetailProductComponent}
 
     // api/orders/new
 

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { ProductsService } from '../../services/products.service';
 
@@ -14,11 +14,15 @@ import { ProductsService } from '../../services/products.service';
 export class UpdateProductComponent {
     formularioUpdate: FormGroup;
 
+  activatedRoute = inject(ActivatedRoute);
     productService = inject(ProductsService);
     router = inject(Router);
 
     constructor() {
       this.formularioUpdate = new FormGroup({
+        id: new FormControl(null, [Validators.required
+
+        ]),
         title: new FormControl(null, [
           Validators.required,
         ]),
@@ -37,26 +41,38 @@ export class UpdateProductComponent {
 
         featured: new FormControl(),
 
-        categories: new FormControl(null, [
+        categories_id: new FormControl(null, [
           Validators.required,
         ]),
 
       });
-
-  }
+    }
+  
+  ngOnInit() {
+    this.activatedRoute.params.subscribe(async params => {
+      try {
+        const response = await this.productService.getById(params['product_id']);
+        if (!response.id) {
+          Swal.fire('Error', 'Este producto no existe.')
+          return
+        }
+        this.formularioUpdate.setValue(response);
+      } catch (error:any) {
+        Swal.fire(error.message)
+      }
+    });
+    }
   
   async onSubmit() {
-    if (this.formularioUpdate.valid) {
-      try {
-        const response = await this.productService.create(this.formularioUpdate.value);  //Método de prueba a espera de poner el correspondiente
-        this.formularioUpdate.reset();
+    try {
+      const response = await this.productService.updateProduct(this.formularioUpdate.value);  
+      this.formularioUpdate.setValue(response);
+        Swal.fire('Success', 'Se ha actualizado el producto.')
       } catch (error) {
+        console.log(error);
         Swal.fire('Error', 'Se ha producido un error: ');
-        this.formularioUpdate.reset();
       }
-    } else {
-      Swal.fire('Error', 'Please complete the form correctly.', 'error');
-    }
+   
   }
 
 }
