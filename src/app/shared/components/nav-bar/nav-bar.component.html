@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
 
-        <a class="navbar-brand fs-4" href="/home">ID Fashion</a>
+        <a class="navbar-brand fs-4" [routerLink]="">ID Fashion</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -12,10 +12,10 @@
 
                 <li class="nav-item" [routerLink]="['/']" routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }">
-                    <a class="nav-link" href="/categories">Categories</a>
+                    <a class="nav-link" [routerLink]="['/categories']">Categories</a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                    <a class="nav-link" href="/featured">Offers</a>
+                    <a class="nav-link" [routerLink]="['/featured']">Offers</a>
                 </li>
 
             </ul>
@@ -25,7 +25,7 @@
             <ul class="navbar-nav ms-auto">
                 <div class="login-container">
                     <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                        <a class="nav-link" href="/login">
+                        <a class="nav-link" [routerLink]="['/login']">
                             <i class="fas fa-sign-in-alt d-none d-md-inline mx-2"></i>
                             <span class="login-text">Login</span>
                         </a>
@@ -34,7 +34,7 @@
 
                 <div class="register-container">
                     <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                        <a class="nav-link" href="/register">
+                        <a class="nav-link" [routerLink]="['/register']">
                             <i class="fas fa-user mx-2  d-none d-md-inline mx-2"></i>
                             <span class="register-text">Sign up</span>
                         </a>
@@ -44,7 +44,7 @@
 
                 <div class="cart-container" id="cart">
                     <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                        <a class="nav-link" href="/orders/new">
+                        <a class="nav-link" [routerLink]="['/orders/new']">
                             <i class="fas fa-shopping-cart mx-5 p-3 border border-dark rounded-circle cart-icon"></i>
                         </a>
                     </li>
