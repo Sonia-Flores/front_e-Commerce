@@ -2,6 +2,10 @@ nav {
     background-color: white;
 }
 
+a {
+    transition: 0.1s;
+}
+
 a:hover {
     color: #0D1B2A;
     font-weight: 600;
