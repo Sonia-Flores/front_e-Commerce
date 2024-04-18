@@ -15,20 +15,20 @@ import { UsuariosService } from '../../services/usuarios.service';
 })
 export class LoginComponent {
 
-    formularioLogin: FormGroup;
+  formularioLogin: FormGroup;
 
-    usuarioService = inject(UsuariosService);
-    router = inject(Router);
+  usuarioService = inject(UsuariosService);
+  router = inject(Router);
 
-    constructor() {
-      this.formularioLogin = new FormGroup({
-        email: new FormControl(null, [
-          Validators.required,
-        ]),
-        password: new FormControl(null, [
-          Validators.required,
-        ]),
-      });
+  constructor() {
+    this.formularioLogin = new FormGroup({
+      email: new FormControl(null, [
+        Validators.required,
+      ]),
+      password: new FormControl(null, [
+        Validators.required,
+      ]),
+    });
 
   }
   

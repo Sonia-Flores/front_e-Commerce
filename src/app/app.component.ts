@@ -12,6 +12,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { CardProductComponent } from './components/products/card-product/card-product.component';
 import { ListProductComponent } from './components/products/list-product/list-product.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
