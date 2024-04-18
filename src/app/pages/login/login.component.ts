@@ -36,8 +36,9 @@ export class LoginComponent {
     if (this.formularioLogin.valid) {
       try {
         const response: any = await this.usuarioService.login(this.formularioLogin.value);  
-
+        console.log(response.token);
         if (response.success) {
+           localStorage.setItem('token', response.token);
           Swal.fire('Success', 'Bienvenido.');
           this.formularioLogin.reset();
           this.router.navigateByUrl('/home');
