@@ -1,7 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
-import { Observable, firstValueFrom } from "rxjs";
+import { firstValueFrom } from "rxjs";
 import { Product } from "../interfaces/product.interface";
+import { Category } from "../interfaces/category.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,15 @@ export class ProductsService {
         `${this.baseUrl}/featured`
       )
     );
+  }
+
+
+  getProductsByCategory(categoryId: number) {
+    return firstValueFrom(
+      this.httpClient.get<Product[]>(
+        `${this.baseUrl}/category/${categoryId}`
+      )
+    )
   }
 
   create(nuevoProducto: Product) {
