@@ -3,13 +3,6 @@ import { Injectable, inject } from "@angular/core";
 import { firstValueFrom } from "rxjs";
 import { Category } from "../interfaces/categories.interface";
 
-
-
-
-
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -20,9 +13,20 @@ export class CategoriesService {
   private httpClient = inject(HttpClient);
 
   getById(category_id: number) {
-  return firstValueFrom( this.httpClient.get<Category>(`${this.baseUrl}/${category_id}`))  
-  } 
+    return firstValueFrom(this.httpClient.get<Category>(`${this.baseUrl}/${category_id}`))
+  }
 
 
+  constructor(httpClient: HttpClient) {
+    this.httpClient = httpClient;
+  }
+
+  getAllCategories() {
+    return firstValueFrom(
+      this.httpClient.get<Category[]>(
+        this.baseUrl
+      )
+    );
+  }
 
 }

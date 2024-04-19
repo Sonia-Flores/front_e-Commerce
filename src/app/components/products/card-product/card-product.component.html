@@ -1,34 +1,15 @@
-<div class="product-card">
-  <a href="https://example.com">
-    <img src="https://img.sharemyimage.com/2024/04/16/page-182414a82cdab6a8a.jpeg" alt="woman with sunglasses">
-    <h3>Blue Skies and White Stripes</h3>
-    <p class="priceP">59 €</p>
-  </a>
+@if (product) {
+
+<div class="image-wrapper">
+  <img src="{{product.image}}" alt="{{product.title}}">
+</div>
+<div class="card-body">
+  <h3 class="card-title">{{product.title}}</h3>
+  <p class="priceP card-text">{{product.price}} €</p>
+
+  <button class="btn btn-primary" [routerLink]="['/products', product.id]">
+    View Details
+  </button>
 </div>
 
-
-<!-- 
-
-  TODO: Create main Routes
-  TODO: Connect Login/Reg with Backend Routes (SERVICES)
-  
-  @if (product) {
-    <div class="product-card [routerLink]="['/products', product.id]">
-        <img src="{{product.image}}" alt="{{product.title}}">
-        <h3>{{product.title}}</h3>
-        <p class="priceP">{{product.price}} €</p>
-     </a>
-</div>
-  }
-  
-
-export interface Product {
-    id: number;
-    title: string;
-    description: string;
-    price: number;
-    image: string;
-    featured: boolean;
-    categories_id: number
-
-}-->
+}
