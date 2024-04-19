@@ -1,61 +1,87 @@
 <div class="body">
-    <div class="container">
+  <div class="container">
+    <div class="mb-3 pt-4">
+      <div class="row">
+        <h1 class="mt-5">Update product</h1>
+        <form
+          class="miForm col-12 col-md-6 mt-4"
+          [formGroup]="formularioUpdate"
+          (ngSubmit)="onSubmit()"
+        >
+          <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Please enter your name here."
+              formControlName="title"
+            />
+          </div>
 
+          <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea
+              class="form-control"
+              placeholder="Please enter the title here."
+              formControlName="description"
+            ></textarea>
+          </div>
 
-        <div class="mb-3 pt-4">
-            <div class="row">
-                <h1 class="mt-5">Update product</h1>
-                <form class="miForm col-12 col-md-6 mt-5" [formGroup]="formularioUpdate" (ngSubmit)="onSubmit()">
-                    <div class="mb-3">
-                        <label class="form-label">Title</label>
-                        <input type="text" class="form-control" placeholder="Please enter your name here." formControlName="title" />
-                        ~[value]="product.title" introducir en el input~
+          <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input
+              type="number"
+              min="0"
+              step="any"
+              class="form-control"
+              formControlName="price"
+            />
+          </div>
 
-                    </div>
+          <div class="mb-3">
+            <label class="form-label">image</label>
+            <input
+              placeholder="Please enter the image here."
+              class="form-control"
+              formControlName="image"
+            />
+          </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Description</label>
-                        <textarea class="form-control" placeholder="Please enter the title here." formControlName="description"></textarea>
-                        ~[value]="product.description" introducir en el input~
+          <div class="mb-3">
+            <label class="form-label">Featured</label>
+            <input
+              type="number"
+              min="0"
+              max="1"
+              step="any"
+              class="form-control"
+              formControlName="featured"
+            />
+          </div>
 
-                    </div>
+          <div class="mb-3">
+            <label class="form-label">Categoria</label>
+            <input
+              type="number"
+              min="0"
+              step="1"
+              class="form-control"
+              formControlName="categories_id"
+            />
+          </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Price</label>
-                        <input type="number" min="0" step="any" class="form-control" formControlName="price" />
-                        ~[value]="product.price" introducir en el input~
-                    </div>
+          <input
+            type="Submit"
+            value="Send"
+            class="btn"
+            [disabled]="!formularioUpdate.valid"
+          />
+        </form>
 
-                    <div class="mb-3">
-                        <label class="form-label">image</label>
-                        <input placeholder="Please enter the image here." class="form-control" formControlName="image" />
-                        ~[value]="product.image" introducir en el input~
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Featured</label>
-                        <input type="number" min="0" max="1" step="any" class="form-control" formControlName="featured" />
-                        ~[value]="product.featured" introducir en el input~
-
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">categories</label>
-                        <input type="number" min="0" step="1" class="form-control" formControlName="categories" />
-                        ~[value]="product.categories" introducir en el input~
-
-                    </div>
-
-                    <input type="Submit" value="Send" class="btn" [disabled]="!formularioUpdate.valid">
-
-                </form>
-
-                <div class="col-md-5 d-none d-md-block justify-content-end miFoto ">
-
-                </div>
-            </div>
-
-        </div>
-
+        <div
+          class="col-md-5 d-none d-md-block justify-content-end miFoto"
+        ></div>
+      </div>
     </div>
+  </div>
 </div>
