@@ -4,26 +4,32 @@
 
         <div class="mb-3">
             <div class="row pt-3 ">
-                <h1 class="mt-5">Log in and join the fashion.</h1>
+                <h1 class="mt-5">Log in and join the fashion</h1>
                 <form class="miForm col-12 col-md-6 mt-5" [formGroup]="formularioLogin" (ngSubmit)="onSubmit()">
 
                     <div class="mb-3">
                         <label class="form-label">Email</label>
-                        <input placeholder="Please enter your email here." class="form-control"
+                        <input placeholder="Please enter your email here" class="form-control"
                             formControlName="email" />
 
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Password</label>
-                        <input type="password" placeholder="Please enter your personal password here."
+                        <input type="password" placeholder="Please enter your personal password here"
                             class="form-control" formControlName="password" />
 
                     </div>
 
                     <input type="Submit" value="Send" class="btn" [disabled]="!formularioLogin.valid">
-
                 </form>
+                <button class="btn btn-ligth mt-4" (click)="toggleDemoMode()">{{ demoMode ?  'Desactivar' : 'Modo Demo'}}</button>
+                <div class="row d-flex justify-content-center gap-2">
+                    @if (demoMode) {
+                    <input type="button" class="" (click)="user()" id="btnUser" value="user">
+                    <input type="button" class="" (click)="admin()" id="btnAdmin" value="admin">
+                    }
+                </div>
 
                 <div class="col-md-5 d-none d-md-block justify-content-end miLoginFoto ">
 
