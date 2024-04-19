@@ -21,12 +21,22 @@ export class CategoriesService {
     this.httpClient = httpClient;
   }
 
+  //TODO: Quedarse con solo un getAll
   getAllCategories() {
     return firstValueFrom(
       this.httpClient.get<Category[]>(
         this.baseUrl
       )
     );
+
   }
+  getAll() {
+    return firstValueFrom(this.httpClient.get<Category[]>(this.baseUrl));
+  }
+
+  create(category: Category) {
+    return firstValueFrom(this.httpClient.post(`${this.baseUrl}/new`, category));
+  }
+
 
 }
