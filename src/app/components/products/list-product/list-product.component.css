@@ -46,7 +46,24 @@ h4 {
 }
 
 .catbutton {
-    width: 47vw;
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: white;
+    background-color:#778DA9;
+
+    &:hover{
+        color: white;
+        background-color: #1B263B
+    }
+}
+
+.arrowStyle{
+   margin: 0.5rem;
+   font-size: 1.8rem;
+   
 }
 
 .custom-gutter {

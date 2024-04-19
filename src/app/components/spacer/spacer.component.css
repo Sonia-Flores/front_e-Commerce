@@ -1,7 +1,9 @@
-article {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin: auto;
+article { 
+    margin: 50px auto;
+
+    padding: 70px 0px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc; ;
 }
 
 
@@ -12,7 +14,7 @@ article {
 
 i {
     font-size: 35px;
-    color: #0d6efd;
+    color: #778DA9;
     margin-right: 25px;
 
 }
