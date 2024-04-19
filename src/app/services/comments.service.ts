@@ -17,9 +17,21 @@ export class CommentsService {
 
   private httpClient = inject(HttpClient);
 
-  create(nuevoProducto: Comment) {
+  create(newComment: Comment) {
     return firstValueFrom(
-      this.httpClient.post(`${this.baseUrl}/new`, nuevoProducto)
+      this.httpClient.post(`${this.baseUrl}/new`, newComment)
+    )
+  }
+
+  getAll() {
+    return firstValueFrom(
+      this.httpClient.get(`${this.baseUrl}`)
+    );
+  }
+
+  getCommentsByProductId(product_id: any) {
+    return firstValueFrom(
+      this.httpClient.get(`${this.baseUrl}/${product_id}`)
     )
   }
 
