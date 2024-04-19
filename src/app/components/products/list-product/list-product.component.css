@@ -47,7 +47,7 @@ h4 {
 
 .catbutton {
     display: flex;
-    width: 70%;
+    width: 50%;
     align-items: center;
     justify-content: center;
     border: none;

@@ -28,6 +28,10 @@
 .btnStyle{
     background-color:#415A77;
     border: none;
+
+    &:active{
+        background-color:#1B263B;
+    }
 }
 
 h3 {
