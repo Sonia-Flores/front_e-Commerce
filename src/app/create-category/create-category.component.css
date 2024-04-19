@@ -2,7 +2,7 @@ h2 {
     font-family: 'Roboto';
 }
 
-.miForm {
+form {
 
     font-family: 'Roboto';
     height: 75vh;
@@ -24,7 +24,7 @@ h2 {
     }
 }
 
-.btn {
+.button {
     color: rgba(224, 225, 221);
     font-family: 'Roboto';
     font-weight: bold;
