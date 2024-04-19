@@ -11,3 +11,44 @@ h4 {
     font-size: 1rem;
     font-weight: 100;
 }
+
+.cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card {
+    width: calc(25% - 10px);
+}
+
+@media screen and (max-width:900px) {
+    .cards-wrapper .card {
+        width: calc(33.333% - 10px);
+    }
+}
+
+@media screen and (max-width:700px) {
+    .cards-wrapper .card {
+        width: calc(50% - 10px);
+    }
+}
+
+@media screen and (max-width:450px) {
+    .cards-wrapper .card {
+        width: 100%;
+    }
+}
+
+
+.category {
+    gap: 10px;
+}
+
+.catbutton {
+    width: 47vw;
+}
+
+.custom-gutter {
+    --bs-gutter-x: 10px;
+}
