@@ -12,8 +12,8 @@ export class ProductsService {
 
   private httpClient = inject(HttpClient);
 
-  getById(product_id: string) {
-  return firstValueFrom( this.httpClient.get<Product>(`${this.baseUrl}/${product_id}`))  
+  getById(idproduct: string) {
+  return firstValueFrom( this.httpClient.get<Product>(`${this.baseUrl}/${idproduct}`))  
   }
 
   create(nuevoProducto: Product) {

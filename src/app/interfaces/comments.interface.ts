@@ -3,6 +3,8 @@ export interface Comment {
     text: string;
     users_id: number;
     products_id: number;
+    author: string;
+    author_last_name: string;
 
     
 }
