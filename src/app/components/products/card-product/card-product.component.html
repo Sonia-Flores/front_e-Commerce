@@ -1,11 +1,15 @@
 @if (product) {
-<div class="product">
+
+<div class="image-wrapper">
   <img src="{{product.image}}" alt="{{product.title}}">
-  <h3>{{product.title}}</h3>
-  <p class="priceP">{{product.price}} €</p>
+</div>
+<div class="card-body">
+  <h3 class="card-title">{{product.title}}</h3>
+  <p class="priceP card-text">{{product.price}} €</p>
 
   <button class="btn btn-primary" [routerLink]="['/products', product.id]">
     View Details
   </button>
 </div>
+
 }
