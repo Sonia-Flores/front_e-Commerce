@@ -37,7 +37,7 @@ export class ProductDetailComponent {
     arrComments: Comment[] = [];
     category: Category | any;
     user_id: number = 0;
-
+    
 
 
     onClickFavorite() {
@@ -51,8 +51,7 @@ export class ProductDetailComponent {
         const token = localStorage['token']
         const decodedToken: any = jwtDecode(token);
         this.user_id = decodedToken.id;
-        console.log(localStorage);
-        console.log(decodedToken);
+        
 
         try {
             

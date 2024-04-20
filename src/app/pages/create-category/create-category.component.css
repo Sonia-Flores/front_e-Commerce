@@ -25,6 +25,8 @@ h1 {
         & textarea {
             background: linear-gradient(170deg, rgb(224, 225, 221) 0%, rgb(254, 250, 224) 100%);
             max-width: 700px;
+            resize: vertical;
+            max-height: 90px;
             border: none;
             border-radius: 0.125rem;
             font-weight: 300;
