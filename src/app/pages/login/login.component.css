@@ -12,7 +12,9 @@ h1 {
     }
 
     & input {
-      background:#E0E1DD ;
+      background: linear-gradient(170deg,
+          rgb(224, 225, 221) 0%,
+          rgb(254, 250, 224) 100%);
       max-width: 700px;
       border: none;
       border-radius: 0.125rem;
@@ -39,4 +41,29 @@ h1 {
   background-image: url('../../../assets/images/login_form.webp');
   background-size: cover;
 
+}
+
+
+/*!  Botones DEMO  */
+
+.demoBtn {
+  width: 120px;
+  height: 36px;
+  color: rgba(224, 225, 221);
+  font-family: "Roboto";
+  font-weight: bold;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.128);
+  margin: 0.35rem 0;
+}
+
+.toggle {
+  padding: 1rem 0;
+}
+
+.inToggle {
+  height: 20px;
+  margin-left: 0;
 }

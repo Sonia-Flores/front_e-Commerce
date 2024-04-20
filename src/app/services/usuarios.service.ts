@@ -11,10 +11,12 @@ export class UsuariosService {
 
   private httpClient = inject(HttpClient);
 
+  getById(user_id: number) {
+    return firstValueFrom(this.httpClient.get<User>(`${this.baseUrl}/${user_id}`));
+  }
+
   create(nuevoUsuario: User) {
-    return firstValueFrom(
-      this.httpClient.post(`${this.baseUrl}/new`, nuevoUsuario)
-    );
+    return firstValueFrom(this.httpClient.post(`${this.baseUrl}/new`, nuevoUsuario));
   }
 
   login(body: any) {
@@ -22,8 +24,6 @@ export class UsuariosService {
   }
 
   getUserByEmail(email: string) {
-    return firstValueFrom(
-      this.httpClient.get<User>(`${this.baseUrl}/email/${email}`)
-    );
+    return firstValueFrom(this.httpClient.get<User>(`${this.baseUrl}/email/${email}`));
   }
 }
