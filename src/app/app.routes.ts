@@ -22,10 +22,10 @@ export const routes: Routes = [
 
   { path: 'products/:idproduct', component: ProductDetailComponent },
 
-    {path: 'categories/create', component:CreateCategoryComponent},
-    {path: 'categories/update', component: UpdateCategoryComponent},
+  {path: 'categories/create', component:CreateCategoryComponent},
+  {path: 'categories/update', component: UpdateCategoryComponent},
 
-    { path: '**', redirectTo: '/home' }
+  { path: '**', redirectTo: '/home' }
 
   // api/users/register (@Cristian)
   // api/users/login (@Cristian)

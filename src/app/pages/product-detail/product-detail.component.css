@@ -45,7 +45,9 @@ article {
         border: 0;
         border-radius: 5px;
         box-shadow: 0 0 10px 0 rgba(13, 27, 42, 0.2);
-        background-color: rgb(119, 141, 169);
+        background: linear-gradient(170deg,
+                    rgb(65, 90, 119) 0%,
+                    rgb(119, 141, 169) 100%);
         display: block;
 
     }
@@ -68,7 +70,7 @@ article {
     }
 
     textarea {
-        background: linear-gradient(170deg, rgb(254, 250, 224) 0%, white 100%);
+        background: var(--lightColor);
         resize: vertical;
         max-height: 100px;
         border: none;

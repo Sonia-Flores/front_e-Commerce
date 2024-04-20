@@ -14,7 +14,7 @@ h1 {
         }
 
         & input {
-            background: linear-gradient(170deg, rgb(224, 225, 221) 0%, rgb(254, 250, 224) 100%);
+            background: var(--lightColor);
             max-width: 700px;
             border: none;
             border-radius: 0.125rem;
@@ -23,7 +23,7 @@ h1 {
         }
 
         & textarea {
-            background: linear-gradient(170deg, rgb(224, 225, 221) 0%, rgb(254, 250, 224) 100%);
+            background: var(--lightColor);
             max-width: 700px;
             resize: vertical;
             max-height: 90px;
@@ -48,7 +48,7 @@ h1 {
 }
 
 .body {
-    background-image: url('https://img.sharemyimage.com/2024/04/17/form-product_creation.webp');
+    background-image: url('../../../assets/images/createNewCategory.jpg');
     background-size: cover;
 
 
