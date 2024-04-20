@@ -13,7 +13,7 @@ export class CategoriesService {
   private httpClient = inject(HttpClient);
 
   getById(category_id: number) {
-    return firstValueFrom(this.httpClient.get<Category>(`${this.baseUrl}/${category_id}`))
+    return firstValueFrom(this.httpClient.get<Category>(`${this.baseUrl}/${category_id}`));
   }
 
 

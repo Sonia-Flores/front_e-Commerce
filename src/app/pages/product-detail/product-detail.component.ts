@@ -21,8 +21,8 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class ProductDetailComponent {
 
-   
-    
+
+
     formularioComment: FormGroup;
 
     categoriesService = inject(CategoriesService);
@@ -31,7 +31,7 @@ export class ProductDetailComponent {
     activatedRoute = inject(ActivatedRoute);
 
 
-    router = inject(Router); 
+    router = inject(Router);
 
     product: Product | any;
     arrComments: Comment[] = [];
@@ -41,49 +41,53 @@ export class ProductDetailComponent {
 
 
     onClickFavorite() {
-        
+        // TODO: make this work
     }
 
- 
+
     ngOnInit() {
 
+        if (localStorage['token']) {
+            const decodedToken: any = jwtDecode(localStorage['token']);
+            this.user_id = decodedToken.id;
+        }
+
         this.activatedRoute.params.subscribe(async (params) => {
-        const token = localStorage['token']
-        const decodedToken: any = jwtDecode(token);
-        this.user_id = decodedToken.id;
-        console.log(localStorage);
-        console.log(decodedToken);
 
-        try {
-            
-            this.product = await this.productsService.getById(params['idproduct']);
+            let errorText = "Error acquiring category";
 
-            if( this.product.id === undefined) {
-                Swal.fire( { 
+            try {
+                this.product = await this.productsService.getById(params['idproduct']);
+
+                if (this.product.id === undefined) {
+                    Swal.fire({
+                        title: "Error",
+                        text: "Product doesn`t exist, redirect to home",    // ?
+                        icon: "error"
+                    });
+
+                    // this.router.navigateByUrl("/home"); 
+                    return
+
+                }
+                this.category = await this.categoriesService.getById(this.product.categories_id);
+                errorText = "Error acquiring comments";
+
+                this.arrComments = await this.commentService.getCommentsByProductId(params['idproduct']);
+
+            } catch (error: any) {
+
+                // Hacer un switch que mande un mensaje diferente en caso de no haber cargado el producto,  en caso de no haber comentarios o no haber categoria. ?
+
+                Swal.fire({
                     title: "Error",
-                    text: "Product doesn`t exist, redirect to home",
+                    text: errorText,
                     icon: "error"
                 });
 
-                this.router.navigateByUrl("/home");
+                // this.router.navigateByUrl("/home");
 
             }
-            
-            const response: any = await this.commentService.getCommentsByProductId(params['idproduct']);
-            this.category = await this.categoriesService.getById(this.product.categories_id);
-            this.arrComments = response;
-
-        } catch (error: any) {
-
-            Swal.fire( { 
-                title: "Error",
-                text: "Error in server service",
-                icon: "error"
-            });
-
-            this.router.navigateByUrl("/home");
-            
-        }
 
 
         })
@@ -94,45 +98,57 @@ export class ProductDetailComponent {
     // Coment Box
 
     constructor() {
-    this.formularioComment = new FormGroup({
-        users_id: new FormControl( 0, [
-            Validators.required,
-        ]),
-        products_id: new FormControl( 0, [
-            Validators.required,
-        ]),
-        text: new FormControl( null, [
-            Validators.required,
-        ]),
+        this.formularioComment = new FormGroup({
+            users_id: new FormControl(0, [
+                Validators.required,
+            ]),
+            products_id: new FormControl(0, [
+                Validators.required,
+            ]),
+            text: new FormControl(null, [
+                Validators.required,
+            ]),
 
-    });
+        });
 
     }
 
-
     async onSubmit() {
-
-        // const newComent = {
-        //     users_id: this.user_id,
-        //     products_id: this.product.id,
-        //     text: this.formularioComment.value.text
-        // }        
 
         this.formularioComment.value.users_id = this.user_id;
         this.formularioComment.value.products_id = this.product.id;
 
-        if (this.formularioComment.valid) {
+        if (this.user_id === 0) {
+            Swal.fire({
+                title: "Error",
+                text: "You must login to share your thoughts",
+                icon: "error"
+            });
+
+        } else if (this.formularioComment.valid && this.user_id !== 0) {
             try {
                 const response = await this.commentService.create(this.formularioComment.value);
                 console.log(response);
+                Swal.fire({
+                    title: "success",
+                    text: "Thanks for your time",
+                    icon: "success"
+                });
                 this.formularioComment.reset();
             } catch (error) {
-                Swal.fire('Error');
-                this.formularioComment.reset();
+                Swal.fire({
+                    title: "Error",
+                    text: "We're sorry. Something went wrong",
+                    icon: "error"
+                });
             }
 
         } else {
-            Swal.fire('Error', 'Please complete the form correctly.', 'error');
+            Swal.fire({
+                title: "Error",
+                text: "Please complete the form correctly",
+                icon: "error"
+            });
         }
 
 

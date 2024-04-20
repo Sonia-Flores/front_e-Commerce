@@ -3,11 +3,6 @@ import { Injectable, inject } from "@angular/core";
 import { firstValueFrom } from "rxjs";
 import { Comment } from "../interfaces/comments.interface";
 
-
-
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -17,12 +12,6 @@ export class CommentsService {
 
   private httpClient = inject(HttpClient);
 
-  create(newComment: Comment) {
-    return firstValueFrom(
-      this.httpClient.post(`${this.baseUrl}/new`, newComment)
-    )
-  }
-
   getAll() {
     return firstValueFrom(
       this.httpClient.get(`${this.baseUrl}`)
@@ -31,7 +20,20 @@ export class CommentsService {
 
   getCommentsByProductId(product_id: any) {
     return firstValueFrom(
-      this.httpClient.get(`${this.baseUrl}/${product_id}`)
+      this.httpClient.get<Comment[]>(`${this.baseUrl}/product/${product_id}`)
+    )
+  }
+
+  create(newComment: Comment) {
+    return firstValueFrom(
+      this.httpClient.post(`${this.baseUrl}/new`, newComment)
+    )
+  }
+
+  deleteComment(comment_id: any) {  //  revisar
+    //  DELETE {{host}}/api/comments/3
+    return firstValueFrom(
+      this.httpClient.delete(`${this.baseUrl}/${comment_id}`)
     )
   }
 
