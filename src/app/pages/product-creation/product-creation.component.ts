@@ -56,8 +56,6 @@ export class ProductCreationComponent {
 
   async ngOnInit() {
 
-
-
     try {
       this.arrCategories = await this.categoriesService.getAll();
     } catch (error: any) {
@@ -67,13 +65,12 @@ export class ProductCreationComponent {
   }
 
   async onSubmit() {
-
     try {
       const response = await this.productService.create(this.formularioCreate.value);
       Swal.fire('Success', `Se ha añadido ${this.formularioCreate.value.title} a la base de datos.`)
       this.formularioCreate.reset();
-    } catch (error) {
-      Swal.fire('Error', 'Se ha producido un error: ');
+    } catch (error: any) {
+      Swal.fire('Error', 'Ha habido un error al crear el producto');
     }
 
   }
