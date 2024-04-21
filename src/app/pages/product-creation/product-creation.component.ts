@@ -1,8 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { ProductsService } from '../../services/products.service';
+import { CategoriesService } from '../../services/categories.service';
+import { Category } from '../../interfaces/categories.interface';
 
 @Component({
   selector: 'app-product-creation',
@@ -13,51 +15,67 @@ import { ProductsService } from '../../services/products.service';
 })
 export class ProductCreationComponent {
 
-    formularioCreate: FormGroup;
+  activatedRoute = inject(ActivatedRoute)
+  router = inject(Router);
 
-    productService = inject(ProductsService);
-    router = inject(Router);
+  productService = inject(ProductsService);
+  categoriesService = inject(CategoriesService);
 
-    constructor() {
-      this.formularioCreate = new FormGroup({
-        title: new FormControl(null, [
-          Validators.required,
+  arrCategories: Category[] = [];
+  formularioCreate: FormGroup;
+
+  constructor() {
+    this.formularioCreate = new FormGroup({
+      title: new FormControl(null, [
+        Validators.required,
+      ]),
+
+      description: new FormControl(null, [
+        Validators.required,
+      ]),
+
+      price: new FormControl(null, [
+        Validators.required,
+      ]),
+
+      image: new FormControl(null, [
+        Validators.required,
+      ]),
+
+      featured: new FormControl(0,
+        [Validators.required,
         ]),
 
-        description: new FormControl(null, [
-          Validators.required,
-        ]),
+      categories_id: new FormControl(null, [
+        Validators.required,
+      ]),
 
-        price: new FormControl(null, [
-          Validators.required,
-        ]),
-
-        image: new FormControl(null, [
-          Validators.required,
-        ]),
-
-        featured: new FormControl(0,
-          [Validators.required,
-          ]),
-
-        categories_id: new FormControl(null, [
-          Validators.required,
-        ]),
-
-      });
+    });
 
   }
-  
+
+  async ngOnInit() {
+
+
+
+    try {
+      this.arrCategories = await this.categoriesService.getAll();
+    } catch (error: any) {
+      Swal.fire(error.message)
+    }
+    ;
+  }
+
   async onSubmit() {
-   
-      try {
-        const response = await this.productService.create(this.formularioCreate.value); 
-        Swal.fire('Success', `Se ha añadido ${this.formularioCreate.value.title} a la base de datos.`)
-        this.formularioCreate.reset();
-      } catch (error) {
-        Swal.fire('Error', 'Se ha producido un error: '); 
-      }
-    
+
+    try {
+      const response = await this.productService.create(this.formularioCreate.value);
+      Swal.fire('Success', `Se ha añadido ${this.formularioCreate.value.title} a la base de datos.`)
+      this.formularioCreate.reset();
+    } catch (error) {
+      Swal.fire('Error', 'Se ha producido un error: ');
+    }
+
   }
 
 }

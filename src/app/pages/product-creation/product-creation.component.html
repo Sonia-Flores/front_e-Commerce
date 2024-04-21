@@ -34,17 +34,34 @@
 
                     </div>
 
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label class="form-label">Featured</label>
                         <input type="number" min="0" max="1" step="any" class="form-control"
                             formControlName="featured" />
 
-                    </div>
+                    </div>-->
 
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label class="form-label">categories</label>
                         <input type="number" min="0" step="1" class="form-control" formControlName="categories_id" />
 
+                    </div> -->
+
+                    <div class="mb-3">
+                        <label class="form-label">category</label>
+                        <select type="number" min="0" step="1" class="form-control" formControlName="categories_id">
+                            @for (category of arrCategories; track category.id) {
+                            <option value="{{category.id}}">{{category.title}}</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Featured</label>
+                        <select type="number" min="0" max="1" step="any" class="form-control"
+                            formControlName="featured">
+                            <option value="0">Non featured</option>
+                            <option value="1">Featured</option>
+                        </select>
                     </div>
 
                     <input type="Submit" value="Send" class="btn" [disabled]="!formularioCreate.valid">
