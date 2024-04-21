@@ -8,14 +8,14 @@
                 <form class="miForm col-12 col-md-6 mt-5" [formGroup]="formularioCreate" (ngSubmit)="onSubmit()">
                     <div class="mb-3">
                         <label class="form-label">Title</label>
-                        <input type="text" class="form-control" placeholder="Please enter your name here."
+                        <input type="text" class="form-control" placeholder="Please enter product name."
                             formControlName="title" />
 
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Description</label>
-                        <textarea class="form-control" placeholder="Please enter the title here."
+                        <textarea class="form-control" placeholder="Please describe this product."
                             formControlName="description"></textarea>
 
 
@@ -29,23 +29,10 @@
 
                     <div class="mb-3">
                         <label class="form-label">image</label>
-                        <input placeholder="Please enter the image here." class="form-control"
+                        <input placeholder="Please enter the product's image here." class="form-control"
                             formControlName="image" />
 
                     </div>
-
-                    <!-- <div class="mb-3">
-                        <label class="form-label">Featured</label>
-                        <input type="number" min="0" max="1" step="any" class="form-control"
-                            formControlName="featured" />
-
-                    </div>-->
-
-                    <!-- <div class="mb-3">
-                        <label class="form-label">categories</label>
-                        <input type="number" min="0" step="1" class="form-control" formControlName="categories_id" />
-
-                    </div> -->
 
                     <div class="mb-3">
                         <label class="form-label">category</label>
