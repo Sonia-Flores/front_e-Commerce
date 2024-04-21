@@ -8,6 +8,7 @@ import { Category } from '../../interfaces/categories.interface';
 import { ProductsService } from '../../services/products.service';
 import { CategoriesService } from '../../services/categories.service';
 import { CommentsService } from '../../services/comments.service';
+import { FavoritesService } from '../../services/favorites.service';
 import { switchAll } from 'rxjs';
 import { formatCurrency } from '@angular/common';
 import { jwtDecode } from 'jwt-decode';
@@ -28,6 +29,7 @@ export class ProductDetailComponent {
     categoriesService = inject(CategoriesService);
     commentService = inject(CommentsService);
     productsService = inject(ProductsService);
+    favoritesService = inject(FavoritesService);
     activatedRoute = inject(ActivatedRoute);
 
 
@@ -38,10 +40,37 @@ export class ProductDetailComponent {
     category: Category | any;
     user_id: number = 0;
 
+    favorite_id: number = 0;
+    isFavorite: boolean = false;
 
 
-    onClickFavorite() {
+    async onClickFavorite() {
+
         // TODO: make this work
+
+        if (!this.isFavorite) {
+            this.isFavorite = true;
+            const newFavorite = {
+                users_id: this.user_id,
+                products_id: this.product.id
+            }
+
+            try {
+
+                const favorite: any = await this.favoritesService.createFavorite(newFavorite);
+                this.favorite_id = favorite.id;
+
+            } catch (error: any) {
+            }
+        } else {
+            this.isFavorite = false;
+            try {
+                const response = await this.favoritesService.deleteFavorite(this.favorite_id);
+
+            } catch (error: any) {
+            }
+        }
+
     }
 
 
@@ -77,8 +106,6 @@ export class ProductDetailComponent {
 
             } catch (error: any) {
 
-                // Hacer un switch que mande un mensaje diferente en caso de no haber cargado el producto,  en caso de no haber comentarios o no haber categoria. ?
-
                 Swal.fire({
                     title: "Error",
                     text: errorText,
@@ -86,6 +113,21 @@ export class ProductDetailComponent {
                 });
 
                 // this.router.navigateByUrl("/home");
+
+            }
+            try {
+                const result: any = await this.favoritesService.getFavoritesByUserIdAndProductId(this.user_id, this.product.id)  //  { id: 8, users_id: 8, products_id: 9 }
+                if (result.id) {
+
+                    this.favorite_id = result.id;
+                    this.isFavorite = true;
+
+                } else {
+                    this.isFavorite = false;
+
+                }
+            } catch (error) {
+                console.log('error: favorite'); //TODO:
 
             }
 
@@ -117,6 +159,8 @@ export class ProductDetailComponent {
 
         this.formularioComment.value.users_id = this.user_id;
         this.formularioComment.value.products_id = this.product.id;
+        console.log(this.formularioComment.value);
+
 
         if (this.user_id === 0) {
             Swal.fire({
