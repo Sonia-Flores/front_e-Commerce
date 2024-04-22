@@ -22,8 +22,6 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class ProductDetailComponent {
 
-
-
     formularioComment: FormGroup;
 
     categoriesService = inject(CategoriesService);
@@ -35,10 +33,12 @@ export class ProductDetailComponent {
 
     router = inject(Router);
 
-    product: Product | any;
+    product: Product | null = null;
     arrComments: Comment[] = [];
     category: Category | any;
     user_id: number = 0;
+    kart: string | null = "";
+    arrKart: Product[] = [];
 
     favorite_id: number = 0;
     isFavorite: boolean = false;
@@ -52,7 +52,7 @@ export class ProductDetailComponent {
             this.isFavorite = true;
             const newFavorite = {
                 users_id: this.user_id,
-                products_id: this.product.id
+                products_id: this.product?.id
             }
 
             try {
@@ -116,7 +116,7 @@ export class ProductDetailComponent {
 
             }
             try {
-                const result: any = await this.favoritesService.getFavoritesByUserIdAndProductId(this.user_id, this.product.id)  //  { id: 8, users_id: 8, products_id: 9 }
+                const result: any = await this.favoritesService.getFavoritesByUserIdAndProductId(this.user_id, this.product!.id)  //  { id: 8, users_id: 8, products_id: 9 }
                 if (result.id) {
 
                     this.favorite_id = result.id;
@@ -158,7 +158,7 @@ export class ProductDetailComponent {
     async onSubmit() {
 
         this.formularioComment.value.users_id = this.user_id;
-        this.formularioComment.value.products_id = this.product.id;
+        this.formularioComment.value.products_id = this.product?.id;
         console.log(this.formularioComment.value);
 
 
@@ -198,5 +198,19 @@ export class ProductDetailComponent {
 
     }
 
+    onBuy() {
+        // meter el product en el kart
+        if (localStorage['kart']) {
+            this.kart = localStorage.getItem('kart');
+            this.arrKart = JSON.parse(this.kart!);
+        }
+        this.arrKart.push(this.product!);
+        localStorage.setItem('kart', JSON.stringify(this.arrKart));
+        Swal.fire({
+            title: "Success",
+            text: "Product added to your kart",
+            icon: "success"
+        });
+    }
 
 }
