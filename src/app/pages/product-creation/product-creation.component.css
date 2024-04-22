@@ -5,10 +5,12 @@ h1 {
 .miForm {
 
     font-family: 'Roboto';
-    height: 75vh;
+    background-color: #E0E1DD;
+    margin: 0px 0px 50px 0px;
+    padding: 30px;
+    border-radius: 10px;
 
     & div {
-
         & label {
             font-weight: bold;
         }
@@ -16,10 +18,10 @@ h1 {
         & input {
             background: var(--lightColor);
             max-width: 700px;
-            border: none;
+            border: 1px solid  #b5b2b2;
             border-radius: 0.125rem;
             font-weight: 300;
-            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+            
         }
 
         & textarea {
@@ -27,10 +29,9 @@ h1 {
             resize: vertical;
             max-height: 90px;
             max-width: 700px;
-            border: none;
+            border: 1px solid #b5b2b2;
             border-radius: 0.125rem;
             font-weight: 300;
-            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
         }
     }
 }
@@ -39,11 +40,10 @@ h1 {
     color: rgba(224, 225, 221);
     font-family: 'Roboto';
     font-weight: bold;
-    border: 0;
+    border: none;
     border-radius: 5px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-    background-color: rgba(255, 255, 255, 0);
-    background: linear-gradient(170deg, rgb(65, 90, 119) 0%, rgb(119, 141, 169) 100%);
+    background: #0D1B2A;
 
 }
 
