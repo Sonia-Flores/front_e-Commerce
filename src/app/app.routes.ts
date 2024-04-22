@@ -7,6 +7,8 @@ import { UpdateProductComponent } from './pages/update-product/update-product.co
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { CreateCategoryComponent } from './pages/create-category/create-category.component';
 import { UpdateCategoryComponent } from './pages/update-category/update-category.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { adminRoutes } from './components/admin/admin.routes';
 
 export const routes: Routes = [
   // HOME index.html
@@ -16,6 +18,7 @@ export const routes: Routes = [
 
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: AdminDashboardComponent, children: adminRoutes },
 
   { path: 'products/create/new', component: ProductCreationComponent },
   { path: 'products/update/:product_id', component: UpdateProductComponent },
@@ -23,7 +26,7 @@ export const routes: Routes = [
   { path: 'products/:idproduct', component: ProductDetailComponent },
 
   { path: 'categories/create', component: CreateCategoryComponent },
-  { path: 'categories/update', component: UpdateCategoryComponent },
+  { path: 'categories/update/:category_id', component: UpdateCategoryComponent },
 
   { path: '**', redirectTo: '/home' }
 
