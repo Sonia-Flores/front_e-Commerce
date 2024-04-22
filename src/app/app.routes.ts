@@ -7,7 +7,11 @@ import { UpdateProductComponent } from './pages/update-product/update-product.co
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { CreateCategoryComponent } from './pages/create-category/create-category.component';
 import { UpdateCategoryComponent } from './pages/update-category/update-category.component';
+<<<<<<< HEAD
 import { OrdersManagementComponent } from './pages/orders-management/orders-management.component';
+=======
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+>>>>>>> feature_cartPage
 
 export const routes: Routes = [
   // HOME index.html
@@ -25,6 +29,8 @@ export const routes: Routes = [
   { path: 'orders', component: OrdersManagementComponent },
 
   { path: 'products/:idproduct', component: ProductDetailComponent },
+
+  { path: 'shoppingcart', component: ShoppingCartComponent },
 
   { path: '**', redirectTo: '/home' }
 
