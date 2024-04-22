@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 import { SpacerComponent } from './components/spacer/spacer.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -9,7 +9,6 @@ import { LoginComponent } from './pages/login/login.component';
 
 import { CardProductComponent } from './components/products/card-product/card-product.component';
 import { ListProductComponent } from './components/products/list-product/list-product.component';
-import { ProductCreationComponent } from './pages/product-creation/product-creation.component';
 import { UpdateProductComponent } from './pages/update-product/update-product.component';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 
@@ -32,5 +31,16 @@ import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.compo
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'front_e-Commerce';
+  router = inject(Router);
+
+  ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 100);
+    });
+  }
 }

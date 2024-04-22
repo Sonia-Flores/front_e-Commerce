@@ -1,32 +1,39 @@
+* {
+  color: #0d1b2a;
+}
+
 nav {
-    background-color: white;
-    padding: 10px 0px;
+  background-color: white;
+  padding: 0px 0px;
 }
 
 a {
-    transition: 0.1s;
+  transition: 0.1s;
+  font-weight: 500;
 }
 
 a:hover {
-    color: #0D1B2A;
-    font-weight: 600;
+  color: #415a77;
+}
+span:hover {
+  color: #415a77;
 }
 
-/* TODO: active class - CSS
-.active {
-    color: tomato;
-} */
+i:hover {
+    color: #415a77;
+  }
+
 
 ul {
-    align-items: center;
+  align-items: center;
 }
 
 .cart-icon:hover {
-    background-color: #0D1B2A;
-    color: white;
+  background-color: #0d1b2a;
+  color: white;
 }
 
-.cart-icon{
-    font-size: large;
-    background-color: #E0E1DD ;
+.cart-icon {
+  font-size: large;
+  background-color: #e0e1dd;
 }
