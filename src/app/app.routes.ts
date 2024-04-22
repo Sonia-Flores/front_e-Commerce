@@ -7,6 +7,7 @@ import { UpdateProductComponent } from './pages/update-product/update-product.co
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { CreateCategoryComponent } from './pages/create-category/create-category.component';
 import { UpdateCategoryComponent } from './pages/update-category/update-category.component';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 
 export const routes: Routes = [
   // HOME index.html
@@ -24,6 +25,8 @@ export const routes: Routes = [
 
   { path: 'categories/create', component: CreateCategoryComponent },
   { path: 'categories/update', component: UpdateCategoryComponent },
+
+  { path: 'shoppingcart', component: ShoppingCartComponent },
 
   { path: '**', redirectTo: '/home' }
 

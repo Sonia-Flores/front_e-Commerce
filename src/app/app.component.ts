@@ -11,6 +11,7 @@ import { CardProductComponent } from './components/products/card-product/card-pr
 import { ListProductComponent } from './components/products/list-product/list-product.component';
 import { ProductCreationComponent } from './pages/product-creation/product-creation.component';
 import { UpdateProductComponent } from './pages/update-product/update-product.component';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,7 @@ import { UpdateProductComponent } from './pages/update-product/update-product.co
     SpacerComponent,
     RegisterComponent,
     LoginComponent,
+    ShoppingCartComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
