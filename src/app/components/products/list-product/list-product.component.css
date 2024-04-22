@@ -71,3 +71,7 @@ h4 {
 .carousel-control-prev, .carousel-control-next {
   width: 5%;
 }
+
+.card{
+  border: none;
+}
