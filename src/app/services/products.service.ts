@@ -52,4 +52,8 @@ export class ProductsService {
     return firstValueFrom(this.httpClient.put<Product>(`${this.baseUrl}/update/${product.id}`, product))
   }
 
+  deleteProduct(product_id: number) {
+    return firstValueFrom(this.httpClient.delete(`${this.baseUrl}/${product_id}`));
+  }
+
 }

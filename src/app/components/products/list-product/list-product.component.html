@@ -66,6 +66,7 @@
   @for (category of allCategories; track $index) {
 
   <h2>{{ category.title }}</h2>
+  <hr>
 
   <div class="row category cards-wrapper m-5 mt-2">
     @for (prod of productsByCategory[category.id]; track prod.id){

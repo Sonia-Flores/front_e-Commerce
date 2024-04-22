@@ -11,6 +11,10 @@ export class UsuariosService {
 
   private httpClient = inject(HttpClient);
 
+  getAll() {
+    return firstValueFrom(this.httpClient.get<User[]>(this.baseUrl));
+  }
+
   getById(user_id: number) {
     return firstValueFrom(this.httpClient.get<User>(`${this.baseUrl}/${user_id}`));
   }

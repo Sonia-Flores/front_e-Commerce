@@ -1,38 +1,32 @@
 <div class="container">
     <hr>
     <div class="orders">
-        <!-- @for -->
         <!-- @if (array.lenght === 0) 'mensaje' -->
-        <div class="d-flex gap-2 justify-content-left order">
-            <button class="field code">Order #: Orders.code</button>
-            <button class="field date">orders.created_at</button>
-            <button class="field user">User: users.name users.last_name</button>
-            <button class="field status">Status: order.status</button>
-        </div>
-        <div class="d-flex gap-2 justify-content-left order">
-            <button class="field code">Order #: Orders.code</button>
-            <button class="field date">orders.created_at</button>
-            <button class="field user">User: users.name users.last_name</button>
-            <button class="field status">Status: order.status</button>
-        </div>
-        <div class="d-flex gap-2 justify-content-left order">
-            <button class="field code">Order #: Orders.code</button>
-            <button class="field date">orders.created_at</button>
-            <button class="field user">User: users.name users.last_name</button>
-            <button class="field status">Status: order.status</button>
-        </div>
-        <div class="d-flex gap-2 justify-content-left order">
-            <button class="field code">Order #: Orders.code</button>
-            <button class="field date">orders.created_at</button>
-            <button class="field user">User: users.name users.last_name</button>
-            <button class="field status">Status: order.status</button>
-        </div>
-        <div class="d-flex gap-2 justify-content-left order">
-            <button class="field code">Order #: Orders.code</button>
-            <button class="field date">orders.created_at</button>
-            <button class="field user">User: users.name users.last_name</button>
-            <button class="field status">Status: order.status</button>
-        </div>
+        @if (arrOrders.length === 0) {
+        <h2>No hay pedidos</h2>
+        }
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Order #:</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">User:</th>
+                    <th scope="col">Status:</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (order of arrOrders; track order.id) {
+                <tr>
+                    <th scope="row">{{order.code}}</th>
+                    <td>{{order.created_at}}</td>
+                    <td>{{order.user_name}} {{order.user_last_name}}</td>
+                    <td>order.status</td>
+                    <button class="btn" (click)="ngOnDelete(order.id)">X</button>
+                </tr>
+                }
+            </tbody>
+        </table>
     </div>
     <hr>
 </div>
