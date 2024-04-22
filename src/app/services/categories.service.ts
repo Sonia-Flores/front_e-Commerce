@@ -38,5 +38,13 @@ export class CategoriesService {
     return firstValueFrom(this.httpClient.post(`${this.baseUrl}/new`, category));
   }
 
+  editCategory(category: Category) {
+    return firstValueFrom(this.httpClient.put<Category>(`${this.baseUrl}/${category.id}`, category));
+  }
+
+  deleteCategory(category_id: number) {
+    return firstValueFrom(this.httpClient.delete(`${this.baseUrl}/${category_id}`));
+  }
+
 
 }

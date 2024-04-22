@@ -9,6 +9,8 @@ import { CreateCategoryComponent } from './pages/create-category/create-category
 import { UpdateCategoryComponent } from './pages/update-category/update-category.component';
 import { OrdersManagementComponent } from './pages/orders-management/orders-management.component';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { adminRoutes } from './components/admin/admin.routes';
 
 export const routes: Routes = [
   // HOME index.html
@@ -18,6 +20,7 @@ export const routes: Routes = [
 
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: AdminDashboardComponent, children: adminRoutes },
 
   { path: 'products/create/new', component: ProductCreationComponent },
   { path: 'products/update/:product_id', component: UpdateProductComponent },
@@ -28,6 +31,8 @@ export const routes: Routes = [
   { path: 'products/:idproduct', component: ProductDetailComponent },
 
   { path: 'shoppingcart', component: ShoppingCartComponent },
+  { path: 'categories/create', component: CreateCategoryComponent },
+  { path: 'categories/update/:category_id', component: UpdateCategoryComponent },
 
   { path: '**', redirectTo: '/home' }
 
