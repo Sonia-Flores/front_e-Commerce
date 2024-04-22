@@ -7,6 +7,7 @@ import { UpdateProductComponent } from './pages/update-product/update-product.co
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { CreateCategoryComponent } from './pages/create-category/create-category.component';
 import { UpdateCategoryComponent } from './pages/update-category/update-category.component';
+import { OrdersManagementComponent } from './pages/orders-management/orders-management.component';
 
 export const routes: Routes = [
   // HOME index.html
@@ -19,11 +20,11 @@ export const routes: Routes = [
 
   { path: 'products/create/new', component: ProductCreationComponent },
   { path: 'products/update/:product_id', component: UpdateProductComponent },
-
-  { path: 'products/:idproduct', component: ProductDetailComponent },
-
   { path: 'categories/create', component: CreateCategoryComponent },
   { path: 'categories/update', component: UpdateCategoryComponent },
+  { path: 'orders', component: OrdersManagementComponent },
+
+  { path: 'products/:idproduct', component: ProductDetailComponent },
 
   { path: '**', redirectTo: '/home' }
 
