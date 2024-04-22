@@ -21,7 +21,8 @@ export class ListProductComponent {
   prodByCats: Product[] = [];
   productsGroups: Product[][] = [];
   allCategories: Category[] = [];
-
+  productsByCategory: { [categoryId: number]: Product[] } = {};
+  
   category: Category | null = null;
 
   productsService = inject(ProductsService);
@@ -71,6 +72,5 @@ export class ListProductComponent {
     this.productsByCategory[categoryId] = this.productsByCategory[categoryId].concat(products).slice(-4);
   }
 
-  productsByCategory: { [categoryId: number]: Product[] } = {};
 
 }

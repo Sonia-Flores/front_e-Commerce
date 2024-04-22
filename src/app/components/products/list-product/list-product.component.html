@@ -63,10 +63,12 @@
 <app-spacer></app-spacer>
 
 <div class="categories">
-  <h2>{{ allCategories[1].title }}</h2>
+  @for (category of allCategories; track $index) {
+
+  <h2>{{ category.title }}</h2>
 
   <div class="row category cards-wrapper m-5 mt-2">
-    @for (prod of productsByCategory[6]; track prod.id){
+    @for (prod of productsByCategory[category.id]; track prod.id){
     <div
       class="card col-12 col-sm-6 col-md-4 col-lg-3 p-3 **@if (prod == productsByCategory[1].Last()) { mx-auto }**"
     >
@@ -77,62 +79,9 @@
 
   <div class="d-flex justify-content-center m-5">
     <button class="btn btn-primary catbutton" [routerLink]="['/categories']">
-      {{ allCategories[1].title }}
+      {{ category.title }}
       <i class="fa-solid fa-arrow-right arrowStyle"></i>
     </button>
   </div>
-
-  <h2>{{ allCategories[2].title }}</h2>
-
-  <div class="row category cards-wrapper m-5 mt-2">
-    @for (prod of productsByCategory[2]; track prod.id){
-    <div
-      class="card col-12 col-sm-6 col-md-4 col-lg-3 p-3 **@if (prod == productsByCategory[2].Last()) { mx-auto }**"
-    >
-      <card-product [product]="prod"></card-product>
-    </div>
-    }
-  </div>
-  <div class="d-flex justify-content-center m-5">
-    <button class="btn btn-primary catbutton" [routerLink]="['/categories']">
-      {{ allCategories[2].title
-      }}<i class="fa-solid fa-arrow-right arrowStyle"></i>
-    </button>
-  </div>
-
-  <h2>{{ allCategories[3].title }}</h2>
-
-  <div class="row category cards-wrapper m-5 mt-2">
-    @for (prod of productsByCategory[3]; track prod.id){
-    <div
-      class="card col-12 col-sm-6 col-md-4 col-lg-3 p-3 **@if (prod == productsByCategory[3].Last()) { mx-auto }**"
-    >
-      <card-product [product]="prod"></card-product>
-    </div>
-    }
-  </div>
-  <div class="d-flex justify-content-center m-5">
-    <button class="btn btn-primary catbutton" [routerLink]="['/categories']">
-      {{ allCategories[3].title }}
-      <i class="fa-solid fa-arrow-right arrowStyle"></i>
-    </button>
-  </div>
-
-  <h2>{{ allCategories[4].title }}</h2>
-
-  <div class="row category cards-wrapper m-5 mt-2">
-    @for (prod of productsByCategory[4]; track prod.id){
-    <div
-      class="card col-12 col-sm-6 col-md-4 col-lg-3 p-3 **@if (prod == productsByCategory[4].Last()) { mx-auto }**"
-    >
-      <card-product [product]="prod"></card-product>
-    </div>
-    }
-  </div>
-  <div class="d-flex justify-content-center m-5">
-    <button class="btn btn-primary catbutton" [routerLink]="['/categories']">
-      {{ allCategories[4].title }}
-      <i class="fa-solid fa-arrow-right arrowStyle"></i>
-    </button>
-  </div>
+  }
 </div>
