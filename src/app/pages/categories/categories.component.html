@@ -1,0 +1,13 @@
+<h1>Filter by Categories</h1>
+    <div class="buttons" > 
+        @for (category of categories; track $index) {
+           <button class="categorybutton" (click)="loadCategory(category.id)" >{{category.title}}</button>
+        }
+        <!--<button class="category-button" (click)="loadCategory(1)" id="woman-button">Woman</button>-->
+
+        
+       
+    </div>
+    <div id="product-list">
+        <!--  productos filtrados -->
+      </div>

@@ -7,6 +7,7 @@ import { UpdateProductComponent } from './pages/update-product/update-product.co
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { CreateCategoryComponent } from './pages/create-category/create-category.component';
 import { UpdateCategoryComponent } from './pages/update-category/update-category.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
 
 export const routes: Routes = [
   // HOME index.html
@@ -16,6 +17,7 @@ export const routes: Routes = [
 
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  {path: 'categories', component: CategoriesComponent},
 
   { path: 'products/create/new', component: ProductCreationComponent },
   { path: 'products/update/:product_id', component: UpdateProductComponent },

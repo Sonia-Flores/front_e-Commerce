@@ -33,7 +33,7 @@ export class ListProductComponent {
 
     // All Categories
     this.allCategories = await this.categoriesService.getAllCategories();
-
+    console.log(this.allCategories)
 
     // Products BY CATEGORIES: Store products by category id
     for (const category of this.allCategories) {
