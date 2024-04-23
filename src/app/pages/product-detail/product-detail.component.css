@@ -1,5 +1,6 @@
 .container {
     font-family: 'Roboto';
+    color: #0D1B2A
 }
 
 
@@ -46,12 +47,14 @@ article {
                     rgb(65, 90, 119) 0%,
                     rgb(119, 141, 169) 100%);
         display: block;
+        margin-bottom: 20px;
 
     }
 
     & .miBtn {
         height: 35px;
         border-radius: 50%;
+
     }
 
     & .subtitle {
@@ -67,7 +70,6 @@ article {
     }
 
     textarea {
-        background: var(--lightColor);
         resize: vertical;
         max-height: 100px;
         border: none;
@@ -75,6 +77,8 @@ article {
         font-weight: 300;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
         overflow-y: scroll;
+        margin-bottom: 20px ;
+        margin-top: 20px;
     }
 
 }
@@ -83,6 +87,11 @@ article {
 .favoriteHeart {
     color: #F97068;
     font-weight: bolder;
-    
 
+}
+
+.reviews div:first-child{
+    border-radius: 10px;
+    background-color: #E0E1DD;
+    padding: 5px;
 }
