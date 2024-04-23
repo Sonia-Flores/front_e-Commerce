@@ -11,6 +11,8 @@ import { OrdersManagementComponent } from './pages/orders-management/orders-mana
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { adminRoutes } from './components/admin/admin.routes';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { OffersComponent } from './pages/offers/offers.component';
 
 export const routes: Routes = [
   // HOME index.html
@@ -21,6 +23,8 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: AdminDashboardComponent, children: adminRoutes },
+  {path: 'categories', component: CategoriesComponent},
+  {path: 'offers', component: OffersComponent},
 
   { path: 'products/create/new', component: ProductCreationComponent },
   { path: 'products/update/:product_id', component: UpdateProductComponent },

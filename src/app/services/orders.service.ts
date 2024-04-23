@@ -25,8 +25,7 @@ export class OrdersService {
     create(newOrder: any) {
         return firstValueFrom(this.httpClient.post(`${this.baseUrl}/new`, newOrder));
     }
-
     deleteOrder(order_id: number) {
-        return firstValueFrom(this.httpClient.delete(`${this.baseUrl}/${order_id}`));
+        return firstValueFrom(this.httpClient.delete(`${this.baseUrl}/${order_id}` ));
     }
 }
