@@ -1,18 +1,21 @@
 h1 {
   font-family: "Roboto";
+  color:#e9eae7;
 }
 
 .miForm {
   font-family: "Roboto";
-  height: 75vh;
+  background-color: #e9eae7;
+    margin: 0px 0px 50px 0px;
+    padding: 30px;
+    border-radius: 10px;
 
   & div {
     & label {
       font-weight: bold;
     }
 
-    & input {
-      background: var(--lightColor);
+    & input, select {
       max-width: 700px;
       border: none;
       border-radius: 0.125rem;
@@ -21,7 +24,6 @@ h1 {
     }
 
     & textarea {
-      background: var(--lightColor);
       max-width: 43.75rem;
       resize: vertical;
       max-height: 5.625rem;
@@ -60,20 +62,10 @@ h1 {
 }
 
 .body {
-  background-image: url('https://img.sharemyimage.com/2024/04/22/UpdateProductV5.jpeg');
+  background-image: url('https://img.sharemyimage.com/2024/04/23/vecteezy_beautiful-women-in-fashionable-clothing-exude-elegance_24903858.webp');
   background-size: cover;
   margin-left: -1.25rem;
   
 
   
-}
-
-
-select {
-  background: var(--lightColor);
-  max-width: 43.75rem;
-  border: none;
-  border-radius: 0.125rem;
-  font-weight: 300;
-  box-shadow: 0rem 0rem 0.3125rem rgba(0, 0, 0, 0.5);
 }

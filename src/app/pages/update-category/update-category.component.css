@@ -5,7 +5,11 @@ h1 {
 .miForm {
 
     font-family: 'Roboto';
-    height: 75vh;
+    background-color: #e0e1dd;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+  
 
     & div {
 
@@ -14,7 +18,6 @@ h1 {
         }
 
         & input {
-            background: var(--lightColor);
             max-width: 700px;
             border: none;
             border-radius: 0.125rem;
@@ -23,7 +26,6 @@ h1 {
         }
 
         & textarea {
-            background: var(--lightColor);
             max-width: 700px;
             resize: vertical;
             max-height: 90px;
