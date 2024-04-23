@@ -34,11 +34,16 @@ export class UpdateCategoryComponent {
   
    try {
      const response = await this.categoriesService.create(this.updateCategory.value);
-     Swal.fire('Succes', `se ha añadido ${this.updateCategory.value.title} a la base de datos` )
+     Swal.fire('Succes', `It has been added ${this.updateCategory.value.title} to the database.` )
      this.updateCategory.reset()
      }
     catch (error) {
-    Swal.fire('Error','Se ha producido un error')
+    Swal.fire('Error','There has been an error.')
+    Swal.fire(
+      'Error!',
+      `An error has occurred with the server. We apologize for the inconvenience.`,
+      'error'
+    );
    }}
   }
 

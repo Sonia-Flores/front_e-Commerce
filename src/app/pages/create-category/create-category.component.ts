@@ -37,6 +37,10 @@ constructor(){
    this.categoryCreate.reset()
    }
   catch (error) {
-  Swal.fire('Error','Se ha producido un error')
+  Swal.fire(
+    'Error!',
+    `An error has occurred with the server. We apologize for the inconvenience.`,
+    'error'
+  );
  }}
 }

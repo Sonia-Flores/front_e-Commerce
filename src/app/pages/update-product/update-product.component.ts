@@ -64,12 +64,17 @@ export class UpdateProductComponent {
 
         const response = await this.productService.getById(params['product_id']);
         if (!response.id) {
-          Swal.fire('Error', 'Este producto no existe.')
+          Swal.fire('Error', 'This product does not exist.')
           return
         }
         this.formularioUpdate.setValue(response);
       } catch (error: any) {
         Swal.fire(error.message)
+        Swal.fire(
+        'Error!',
+        `An error has occurred with the server. We apologize for the inconvenience.`,
+        'error'
+        );
       }
     });
   }
@@ -80,15 +85,13 @@ export class UpdateProductComponent {
         this.formularioUpdate.value
       );
       this.formularioUpdate.setValue(response);
-      Swal.fire('Success', 'Se ha actualizado el producto');
+      Swal.fire('Success', 'The product has been updated.');
     } catch (error: any) {
-      Swal.fire({
-        title: 'Error',
-        text: error.error.fatal,
-        icon: 'error',
-
-        // confirmButtonText: "Aceptar",
-      });
+      Swal.fire(
+        'Error!',
+        `An error has occurred with the server. We apologize for the inconvenience.`,
+        'error'
+      );
     }
   }
 }

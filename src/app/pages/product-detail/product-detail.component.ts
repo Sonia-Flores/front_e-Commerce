@@ -116,7 +116,7 @@ export class ProductDetailComponent {
 
             }
             try {
-                const result: any = await this.favoritesService.getFavoritesByUserIdAndProductId(this.user_id, this.product!.id)  //  { id: 8, users_id: 8, products_id: 9 }
+                const result: any = await this.favoritesService.getFavoritesByUserIdAndProductId(this.user_id, this.product!.id)  // 
                 if (result.id) {
 
                     this.favorite_id = result.id;
@@ -127,7 +127,12 @@ export class ProductDetailComponent {
 
                 }
             } catch (error) {
-                console.log('error: favorite'); //TODO:
+                console.log('error: favorite');
+                Swal.fire(
+                    'Error!',
+                    `An error has occurred with the server. We apologize for the inconvenience.`,
+                    'error'
+                );
 
             }
 
@@ -208,7 +213,7 @@ export class ProductDetailComponent {
         localStorage.setItem('kart', JSON.stringify(this.arrKart));
         Swal.fire({
             title: "Success",
-            text: "Product added to your kart",
+            text: "Product added to your cart",
             icon: "success"
         });
     }
