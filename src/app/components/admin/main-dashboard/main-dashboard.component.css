@@ -24,4 +24,17 @@ div>a {
     background-color: var(--darkBlue);
 }
 
-/* pending mediaquery mobile */
+/* Mediaquery mobile */
+
+@media only screen and (max-width: 800px) {
+
+    .row {
+        flex-direction: column;
+    }
+
+    .box {
+        height: 10vh;
+        margin: 0.425rem 0;
+    }
+
+}
