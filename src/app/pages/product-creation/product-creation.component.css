@@ -5,7 +5,7 @@ h1 {
 .miForm {
 
     font-family: 'Roboto';
-    background-color: #E0E1DD;
+    background-color: #e9eae7;
     margin: 0px 0px 50px 0px;
     padding: 30px;
     border-radius: 10px;
@@ -16,7 +16,6 @@ h1 {
         }
 
         & input {
-            background: var(--lightColor);
             max-width: 700px;
             border: 1px solid  #b5b2b2;
             border-radius: 0.125rem;
@@ -25,7 +24,6 @@ h1 {
         }
 
         & textarea {
-            background: var(--lightColor);
             resize: vertical;
             max-height: 90px;
             max-width: 700px;
@@ -48,14 +46,13 @@ h1 {
 }
 
 .body {
-    background-image: url('https://img.sharemyimage.com/2024/04/22/CreateProductV5.jpeg');
+    background-image: url('https://img.sharemyimage.com/2024/04/23/clothes-store-with-rack-clothes.webp ');
     background-size: cover;
 
 
 }
 
 select {
-    background: linear-gradient(170deg, rgb(224, 225, 221) 0%, rgb(254, 250, 224) 100%);
     max-width: 43.75rem;
     border: none;
     border-radius: 0.125rem;
