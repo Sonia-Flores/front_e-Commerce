@@ -117,7 +117,9 @@ export class ProductDetailComponent {
             }
             try {
                 const result: any = await this.favoritesService.getFavoritesByUserIdAndProductId(this.user_id, this.product!.id)  // 
-                if (result.id) {
+
+                if (result) {
+
 
                     this.favorite_id = result.id;
                     this.isFavorite = true;
@@ -127,7 +129,7 @@ export class ProductDetailComponent {
 
                 }
             } catch (error) {
-                console.log('error: favorite');
+
                 Swal.fire(
                     'Error!',
                     `An error has occurred with the server. We apologize for the inconvenience.`,
