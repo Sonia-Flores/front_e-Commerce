@@ -60,6 +60,11 @@ export class ProductCreationComponent {
       this.arrCategories = await this.categoriesService.getAll();
     } catch (error: any) {
       Swal.fire(error.message)
+      Swal.fire(
+        'Error!',
+        `An error has occurred with the server. We apologize for the inconvenience.`,
+        'error'
+      );
     }
     ;
   }
@@ -67,10 +72,10 @@ export class ProductCreationComponent {
   async onSubmit() {
     try {
       const response = await this.productService.create(this.formularioCreate.value);
-      Swal.fire('Success', `Se ha añadido ${this.formularioCreate.value.title} a la base de datos.`)
+      Swal.fire('Success', `${this.formularioCreate.value.title}' has been added to the database.`)
       this.formularioCreate.reset();
     } catch (error: any) {
-      Swal.fire('Error', 'Ha habido un error al crear el producto');
+      Swal.fire('Error', 'There has been an error while creating the product.');
     }
 
   }

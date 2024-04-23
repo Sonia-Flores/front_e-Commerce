@@ -54,15 +54,19 @@ export class RegisterComponent {
         const response: any = await this.usuarioService.create(this.formulario.value);  
         
         if (response.fatal) {
-          Swal.fire('Error', `Este usuario ya existe.`);
+          Swal.fire('Error', `This user already exists.`);
           return;
         } else {
-          Swal.fire(`El Usuario ${response.name} se ha registrado.`)
+          Swal.fire(`The User ${response.name} se ha registrado.`)
         }
         this.formulario.reset();
         this.router.navigateByUrl('/login');  
       } catch (error) {
-        Swal.fire('Error', 'Se ha producido un error.');
+        Swal.fire(
+          'Error!',
+          `An error has occurred with the server. We apologize for the inconvenience.`,
+          'error'
+        );
         this.formulario.reset();
       }
     } else {

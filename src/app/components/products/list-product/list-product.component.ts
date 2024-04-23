@@ -6,6 +6,7 @@ import { CategoriesService } from '../../../services/categories.service';
 import { SpacerComponent } from '../../spacer/spacer.component';
 import { RouterLink } from '@angular/router';
 import { Category } from '../../../interfaces/category.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'list-product',
@@ -59,6 +60,11 @@ export class ListProductComponent {
       }
     } catch (error) {
       console.error('Error fetching featured products:', error);
+      Swal.fire(
+        'Error!',
+        `An error has occurred with the server. We apologize for the inconvenience.`,
+        'error'
+      );
     }
   }
 
