@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductsService } from '../../services/products.service';
 import { Product } from '../../interfaces/product.interface';
+import { Category } from '../../interfaces/categories.interface';
 import { CategoriesService } from '../../services/categories.service';
 import { CardProductComponent } from '../../components/products/card-product/card-product.component';
 import { ListProductComponent } from '../../components/products/list-product/list-product.component';
 import Swal from 'sweetalert2';
-import { Category } from '../../interfaces/categories.interface';
+
 @Component({
   selector: 'app-categories',
   standalone: true,

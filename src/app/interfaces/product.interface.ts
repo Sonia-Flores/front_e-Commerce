@@ -1,4 +1,5 @@
 export interface Product {
+isOnOffer: any;
     id: number;
     title: string;
     description: string;
