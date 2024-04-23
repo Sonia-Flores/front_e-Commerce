@@ -23,6 +23,17 @@
             <hr>
 
             <ul class="navbar-nav ms-auto">
+                @if (decodedToken.role === 'admin') {
+                <div class="admin-container">
+                    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                        <a class="nav-link" [routerLink]="['/dashboard']">
+                            <i class="fa-solid fa-chart-line d-none d-md-inline mx-2"></i>
+                            <span class="login-text">Dashboard</span>
+                        </a>
+                    </li>
+                </div>
+                }
+
                 <div class="login-container">
                     <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                         <a class="nav-link" [routerLink]="['/login']">
@@ -41,6 +52,16 @@
                     </li>
                 </div>
 
+                @if (decodedToken.role === 'admin') {
+                <div class="logout-container">
+                    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                        <a class="nav-link" [routerLink]="['/logout']">
+                            <i class="fas fa-user mx-2  d-none d-md-inline mx-2"></i>
+                            <span class="register-text">Logout</span>
+                        </a>
+                    </li>
+                </div>
+                }
 
                 <div class="cart-container" id="cart">
                     <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">

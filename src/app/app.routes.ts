@@ -7,7 +7,6 @@ import { UpdateProductComponent } from './pages/update-product/update-product.co
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { CreateCategoryComponent } from './pages/create-category/create-category.component';
 import { UpdateCategoryComponent } from './pages/update-category/update-category.component';
-import { OrdersManagementComponent } from './pages/orders-management/orders-management.component';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { adminRoutes } from './components/admin/admin.routes';
@@ -30,7 +29,6 @@ export const routes: Routes = [
   { path: 'products/update/:product_id', component: UpdateProductComponent },
   { path: 'categories/create', component: CreateCategoryComponent },
   { path: 'categories/update', component: UpdateCategoryComponent },
-  { path: 'orders', component: OrdersManagementComponent },
 
   { path: 'products/:idproduct', component: ProductDetailComponent },
 
@@ -39,9 +37,6 @@ export const routes: Routes = [
   { path: 'categories/update/:category_id', component: UpdateCategoryComponent },
 
   { path: '**', redirectTo: '/home' }
-
-  // api/users/register (@Cristian)
-  // api/users/login (@Cristian)
 
   // api/categories/:categoryId
   // api/products/favorites
