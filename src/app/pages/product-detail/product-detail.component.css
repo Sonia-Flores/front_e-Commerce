@@ -79,12 +79,10 @@ article {
 
 }
 
-/* type="button" class="btn miBtn mt-4 text-aling-center"[class.favoriteBtn] */
-
-.favoriteBtn {
-    background-color: red !important;
-}
 
 .favoriteHeart {
-    color: white;
+    color: #F97068;
+    font-weight: bolder;
+    
+
 }

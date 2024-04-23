@@ -14,9 +14,9 @@
 
             <p><span>Category:</span>{{category?.title}}</p>
 
-            <button type="button" class="btn miBtn mt-4 text-aling-center" [class.favoriteBtn]="isFavorite"><i
+            <button type="button" class="btn miBtn mt-4 text-aling-center" (click)="onClickFavorite()"><i
                     class="fa-regular fa-heart" [class.favoriteHeart]="isFavorite"
-                    (click)="onClickFavorite()"></i></button>
+                    ></i></button>
 
             <button type="button" class="btn mt-4" (click)="onBuy()">Buy Now!</button>
 
