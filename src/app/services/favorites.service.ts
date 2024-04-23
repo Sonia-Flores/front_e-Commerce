@@ -22,6 +22,7 @@ export class FavoritesService {
   }
 
   getFavoritesByUserIdAndProductId(user_id: number, product_id: number) {
+
     return firstValueFrom(this.httpClient.get(`${this.baseUrl}/params?user_id=${user_id}&product_id=${product_id}`))   //Implementar la ruta
   }
 
