@@ -1,72 +1,62 @@
 h1 {
-    font-family: 'Roboto';
+  font-family: "Roboto";
 }
 .buttons {
-    text-align: center;
-    margin-bottom: 20px;
-   
-   
-  }
-  
-  .categorybutton:hover {
-    background-color: #cbdf88;
-    margin-top: auto;
-    
-  }
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-  
-  .card-product {
-    width: 200px;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
-  }
-  
-  .card-product {
-    max-width: 100%;
-    height: auto;
-  }
-  .categorybutton {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 5px;
-    background-color: #939da8;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .cards-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+.card-product {
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.card-product {
+  max-width: 100%;
+  height: auto;
+}
+.categorybutton {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #415a77;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .card {
-    width: calc(25% - 10px);
+  width: calc(25% - 10px);
+  border: none;
 }
 
-  .categorybutton:hover {
-    background-color: #0056b3;
+.categorybutton:hover {
+  background-color: #1b263b;
+}
+
+@media screen and (max-width: 900px) {
+  .cards-wrapper .card {
+    width: calc(33.333% - 10px);
   }
-
-  
-@media screen and (max-width:900px) {
-    .cards-wrapper .card {
-        width: calc(33.333% - 10px);
-    }
 }
 
-@media screen and (max-width:700px) {
-    .cards-wrapper .card {
-        width: calc(50% - 10px);
-    }
+@media screen and (max-width: 700px) {
+  .cards-wrapper .card {
+    width: calc(50% - 10px);
+  }
 }
 
-@media screen and (max-width:450px) {
-    .cards-wrapper .card {
-        width: 100%;
-    }
+@media screen and (max-width: 450px) {
+  .cards-wrapper .card {
+    width: 100%;
+  }
 }

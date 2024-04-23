@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import {  ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ProductsService } from '../../services/products.service';
 import { Product } from '../../interfaces/product.interface';
 import { CategoriesService } from '../../services/categories.service';
@@ -11,17 +11,21 @@ import Swal from 'sweetalert2';
   standalone: true,
   imports: [ReactiveFormsModule, CardProductComponent, ListProductComponent],
   templateUrl: './categories.component.html',
-  styleUrl: './categories.component.css'
+  styleUrl: './categories.component.css',
 })
 export class CategoriesComponent {
-  productsService = inject(ProductsService)
-  categoriesService = inject(CategoriesService)
- // ordersService = inject(OrdersService)
-  arrayProducts:Product[]=[];
+  productsService = inject(ProductsService);
+  categoriesService = inject(CategoriesService);
+  // ordersService = inject(OrdersService)
+  arrayProducts: Product[] = [];
+  selectedCategory: Category = {
+    id: 0,
+    title: "All our products",
+  };
   //en el ngOninit lanzar una peticion para recuperar todas las categorias
- categories: any
-product: any;
-$index: any;
+  categories: any;
+  product: any;
+  $index: any;
 
   async ngOnInit(){
 
@@ -50,10 +54,3 @@ $index: any;
     );
   }
 }
-}
-   
-   
-
-
- 
-

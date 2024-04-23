@@ -1,5 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { ProductsService } from '../../services/products.service';
@@ -11,11 +17,10 @@ import { Category } from '../../interfaces/categories.interface';
   standalone: true,
   imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './product-creation.component.html',
-  styleUrl: './product-creation.component.css'
+  styleUrl: './product-creation.component.css',
 })
 export class ProductCreationComponent {
-
-  activatedRoute = inject(ActivatedRoute)
+  activatedRoute = inject(ActivatedRoute);
   router = inject(Router);
 
   productService = inject(ProductsService);
@@ -26,36 +31,21 @@ export class ProductCreationComponent {
 
   constructor() {
     this.formularioCreate = new FormGroup({
-      title: new FormControl(null, [
-        Validators.required,
-      ]),
+      title: new FormControl(null, [Validators.required]),
 
-      description: new FormControl(null, [
-        Validators.required,
-      ]),
+      description: new FormControl(null, [Validators.required]),
 
-      price: new FormControl(null, [
-        Validators.required,
-      ]),
+      price: new FormControl(null, [Validators.required]),
 
-      image: new FormControl(null, [
-        Validators.required,
-      ]),
+      image: new FormControl(null, [Validators.required]),
 
-      featured: new FormControl(0,
-        [Validators.required,
-        ]),
+      featured: new FormControl(0, [Validators.required]),
 
-      categories_id: new FormControl(null, [
-        Validators.required,
-      ]),
-
+      categories_id: new FormControl("", [Validators.required]),
     });
-
   }
 
   async ngOnInit() {
-
     try {
       this.arrCategories = await this.categoriesService.getAll();
     } catch (error: any) {
@@ -66,7 +56,6 @@ export class ProductCreationComponent {
         'error'
       );
     }
-    ;
   }
 
   async onSubmit() {
@@ -77,7 +66,6 @@ export class ProductCreationComponent {
     } catch (error: any) {
       Swal.fire('Error', 'There has been an error while creating the product.');
     }
-
+    this.router.navigateByUrl('/dashboard/products');
   }
-
 }

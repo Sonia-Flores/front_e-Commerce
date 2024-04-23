@@ -42,7 +42,7 @@
           <div class="mb-3">
             <label class="form-label">Image</label>
             <input
-              placeholder="Please enter the product's image here."
+              placeholder="Please enter the product's image here"
               class="form-control"
               formControlName="image"
             />
@@ -57,7 +57,7 @@
               class="form-control"
               formControlName="categories_id"
             >
-              <option selected>Select category</option>
+              <option value="" selected>Select category</option>
               @for (category of arrCategories; track category.id) {
               <option value="{{ category.id }}">{{ category.title }}</option>
               }

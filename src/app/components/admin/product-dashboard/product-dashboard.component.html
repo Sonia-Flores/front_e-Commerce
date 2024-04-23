@@ -17,10 +17,9 @@
         @for (product of allProducts; track $index) {
         <tr>
             <td>{{ product.title }}</td>
-
             <td><button class="edit btn btn-warning" [routerLink]="['/products/update', product.id]">Edit</button>
             </td>
-
+            
             <td><button class="delete btn btn-danger" (click)="deleteProduct(product)">Delete</button>
             </td>
         </tr>
