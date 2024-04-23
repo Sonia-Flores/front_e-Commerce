@@ -18,10 +18,11 @@
 }
 img {
   max-height: 375px;
+  width: 90%;
 }
 
 .image-wrapper img {
-  width: 100%;
+  width: 95%;
   height: auto;
   display: block;
 }
