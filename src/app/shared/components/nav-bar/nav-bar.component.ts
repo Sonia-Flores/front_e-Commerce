@@ -27,11 +27,18 @@ export class NavBarComponent {
 
     if (localStorage['token']) {
       this.decodedToken = jwtDecode(localStorage['token']);
+
     }
 
     if (!localStorage['token'] || this.decodedToken.role !== 'admin') {
-      this.router.navigateByUrl("/home");
+      this.router.navigateByUrl('/home');
+
     }
   }
 
+  logoutHandler() {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('/home');
+    location.reload();
+  }
 }

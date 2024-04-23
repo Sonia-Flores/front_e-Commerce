@@ -10,8 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
 
-                <li class="nav-item" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }">
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                     <a class="nav-link" [routerLink]="['/categories']">Categories</a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
@@ -23,6 +22,8 @@
             <hr>
 
             <ul class="navbar-nav ms-auto">
+
+
                 @if (decodedToken.role === 'admin') {
                 <div class="admin-container">
                     <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
@@ -34,6 +35,8 @@
                 </div>
                 }
 
+
+                @if (!decodedToken) {
                 <div class="login-container">
                     <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                         <a class="nav-link" [routerLink]="['/login']">
@@ -42,7 +45,9 @@
                         </a>
                     </li>
                 </div>
+                }
 
+                @if (!decodedToken) {
                 <div class="register-container">
                     <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                         <a class="nav-link" [routerLink]="['/register']">
@@ -51,12 +56,16 @@
                         </a>
                     </li>
                 </div>
+                }
 
-                @if (decodedToken.role === 'admin') {
+
+
+                @if (decodedToken) {
                 <div class="logout-container">
                     <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                        <a class="nav-link" [routerLink]="['/logout']">
-                            <i class="fas fa-user mx-2  d-none d-md-inline mx-2"></i>
+                        <a class="nav-link logout" (click)="logoutHandler()">
+
+                            <i class="fa-solid fa-right-from-bracket mx-2  d-none d-md-inline mx-2"></i>
                             <span class="register-text">Logout</span>
                         </a>
                     </li>
@@ -70,6 +79,7 @@
                         </a>
                     </li>
                 </div>
+
             </ul>
         </div>
     </div>

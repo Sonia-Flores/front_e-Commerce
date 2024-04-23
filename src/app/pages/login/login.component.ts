@@ -50,6 +50,7 @@ export class LoginComponent {
 
           if (decodedToken.role === "admin") {
             this.route = '/dashboard';
+            location.reload();
           }
 
           Swal.fire({
@@ -58,6 +59,7 @@ export class LoginComponent {
           });
           this.formularioLogin.reset();
           this.router.navigateByUrl(this.route);
+          location.reload();
 
         } else {
           Swal.fire({
@@ -86,6 +88,7 @@ export class LoginComponent {
     const user: any = { email: 'ashley@example.com', password: '123456' };
     this.formularioLogin.setValue(user);
     this.onSubmit();
+
   }
 
   admin() {
