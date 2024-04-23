@@ -1,15 +1,13 @@
-
 h1 {
   font-family: "Roboto";
 }
 
 .miForm {
   font-family: "Roboto";
-  background-color: #E0E1DD;
+  background-color: #e0e1dd;
   padding: 25px;
   border-radius: 10px;
   margin-bottom: 50px;
-
 
   & div {
     & label {
@@ -26,7 +24,7 @@ h1 {
   }
 }
 
-.btn{
+.btn {
   color: rgba(224, 225, 221);
   font-family: "Roboto";
   font-weight: bold;
@@ -34,19 +32,17 @@ h1 {
   border-radius: 5px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   background-color: rgba(255, 255, 255, 0);
-  background: #415A77 ;
+  background: #415a77;
   margin-right: 15px;
 }
-.demoBtn{
-  background: #9fa4a9 ;
+.demoBtn {
+  background: #9fa4a9;
   font-weight: normal;
 }
 
-
 .body {
-  background-image: url('https://img.sharemyimage.com/2024/04/22/LoginV2.jpeg');
+  background-image: url("https://img.sharemyimage.com/2024/04/23/close-up-woman-sandals-near-shopping-bags.webp");
   background-size: cover;
-
 }
 
 .toggle {
@@ -58,6 +54,10 @@ h1 {
   margin-left: 0;
 }
 
-.btns{
+.btns {
   margin-top: 30px;
+}
+
+.body {
+  height: 85vh;
 }
