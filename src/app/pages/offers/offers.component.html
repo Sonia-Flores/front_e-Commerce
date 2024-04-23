@@ -1,1 +1,20 @@
-<p>offers works!</p>
+
+<div class="buttons">
+    @for (category of categories; track $index) {
+    <button class="categorybutton" (click)="loadCategory(category.id)">{{category.title}}</button>
+    }
+</div>
+<div id="list-product">
+    <div class="row category cards-wrapper m-5 mt-2">
+        
+        @for (prod of arrayProducts; track prod.id){
+            @if (prod.isOnOffer) {
+                <div class="card col-12 col-sm-6 col-md-4 col-lg-3 p-3 **@if (prod == arrayProducts.Last()) { mx-auto }**">
+                    <card-product [product]="prod"></card-product>
+                </div>
+            }
+        }
+    </div>
+        
+ </div>
+

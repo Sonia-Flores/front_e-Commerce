@@ -15,20 +15,15 @@ import { ListProductComponent } from '../../components/products/list-product/lis
 export class CategoriesComponent {
   productsService = inject(ProductsService)
   categoriesService = inject(CategoriesService)
- // ordersService = inject(OrdersService)
+
   arrayProducts:Product[]=[];
-  //en el ngOninit lanzar una peticion para recuperar todas las categorias
+  
  categories: any
 product: any;
 $index: any;
 
   async ngOnInit(){
- /*  try {
-     this.arrayProducts= await this.productsService.getAll();
-    console.log(this.arrayProducts)
-   } catch (error: any) {
-    console.log(error.message)
-   }*/
+ 
    try {
     this.categories= await this.categoriesService.getAll();
     console.log(this.categories)
@@ -37,7 +32,6 @@ $index: any;
    }
   }
 
- 
 
   async loadCategory(category_id: number){
   try {
