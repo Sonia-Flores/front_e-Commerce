@@ -24,30 +24,23 @@ $index: any;
 productsOffer: Product[] | undefined
 
   async ngOnInit(){
-
+   
    try {
-    this.categories= await this.categoriesService.getAll();
-    console.log(this.categories)
+     this.arrayProducts= await this.productsService.getFeaturedProducts();
+    console.log(this.arrayProducts);
    } catch (error: any) {
     console.log(error.message)
    }
   }
 
-  async loadCategory(category_id: number){
-  try {
-    this.arrayProducts= await this.productsService.getProductsByCategory(category_id);
-    console.log(this.arrayProducts)
-  } catch (error) {
-    
-  }
-}
+  
 
-   filterOffers(){
+   /*filterOffers(){
   try {
     this.productsOffer =  this.arrayProducts.filter(product=> this.product.isOnOffer)
   } catch (error: any) {
     console.log(error.message)
-  }
+  }*/
 }
-}
+
 

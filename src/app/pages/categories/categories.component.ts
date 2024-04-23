@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { ProductsService } from '../../services/products.service';
 import { Product } from '../../interfaces/product.interface';
+import { Category } from '../../interfaces/categories.interface';
 import { CategoriesService } from '../../services/categories.service';
 import { CardProductComponent } from '../../components/products/card-product/card-product.component';
 import { ListProductComponent } from '../../components/products/list-product/list-product.component';
@@ -18,19 +19,20 @@ export class CategoriesComponent {
 
   arrayProducts:Product[]=[];
   
- categories: any
-product: any;
+ categories: Category []= [];
+//product:Product[]=[];
 $index: any;
 
   async ngOnInit(){
  
    try {
-    this.categories= await this.categoriesService.getAll();
-    console.log(this.categories)
+    this.arrayProducts= await this.productsService.getAll();
+     this.arrayProducts;
    } catch (error: any) {
     console.log(error.message)
    }
   }
+
 
 
   async loadCategory(category_id: number){
