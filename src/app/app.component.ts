@@ -11,6 +11,7 @@ import { CardProductComponent } from './components/products/card-product/card-pr
 import { ListProductComponent } from './components/products/list-product/list-product.component';
 import { UpdateProductComponent } from './pages/update-product/update-product.component';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import { FooterSpacerComponent } from './components/footer-spacer/footer-spacer.component';
 
 @Component({
   selector: 'app-root',
@@ -26,6 +27,7 @@ import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.compo
     RegisterComponent,
     LoginComponent,
     ShoppingCartComponent,
+    FooterSpacerComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
