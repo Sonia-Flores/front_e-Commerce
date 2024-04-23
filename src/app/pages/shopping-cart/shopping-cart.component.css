@@ -2,6 +2,7 @@
 .body{
     background-color: var(--lightBlue);
     font-family: 'Roboto';
+    height: 100%;
 }
 
 .cartContain {
@@ -29,24 +30,8 @@
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .bg {
     background-color: green;
 }
 
 
-@media (min-width: 1025px) {
-    .h-custom {
-        height: 100vh !important;
-    }
-}
