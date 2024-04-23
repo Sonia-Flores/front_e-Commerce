@@ -42,7 +42,7 @@
                                                         <h5 class="fw-normal mb-0">{{item.quantity}}</h5>
                                                     </div>
                                                     <div style="width: 80px;">
-                                                        <h5 class="mb-0">{{item.total}}</h5>
+                                                        <h5 class="mb-0">{{item.total}} &euro;</h5>
                                                     </div>
                                                     <a (click)="DeleteItem(item.id)" style="color: var(--darkColor)"><i
                                                             class="fas fa-trash-alt"></i></a>
@@ -115,13 +115,13 @@
 
                                             <div class="d-flex justify-content-between mb-4">
                                                 <p class="mb-2">Total(Incl. taxes)</p>
-                                                <p class="mb-2">${{total}}</p>
+                                                <p class="mb-2">{{total}} &euro;</p>
                                             </div>
 
                                             <button type="button" data-mdb-button-init data-mdb-ripple-init
                                                 class="btn btn-info btn-block btn-lg">
                                                 <div class="d-flex gap-2 justify-content-between">
-                                                    <span>${{total}}</span>
+                                                    <span>{{total}} &euro;</span>
                                                     <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
                                                 </div>
                                             </button>
