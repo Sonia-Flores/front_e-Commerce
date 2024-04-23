@@ -6,6 +6,7 @@ import { CategoriesService } from '../../services/categories.service';
 import { CardProductComponent } from '../../components/products/card-product/card-product.component';
 import { ListProductComponent } from '../../components/products/list-product/list-product.component';
 import Swal from 'sweetalert2';
+import { Category } from '../../interfaces/categories.interface';
 @Component({
   selector: 'app-categories',
   standalone: true,
@@ -20,37 +21,39 @@ export class CategoriesComponent {
   arrayProducts: Product[] = [];
   selectedCategory: Category = {
     id: 0,
-    title: "All our products",
+    title: 'All our products',
   };
   //en el ngOninit lanzar una peticion para recuperar todas las categorias
   categories: any;
   product: any;
   $index: any;
 
-  async ngOnInit(){
-
-   try {
-    this.categories= await this.categoriesService.getAll();
-   } catch (error: any) {
-    console.log(error.message)
-    Swal.fire(
-      'Error!',
-      `An error has occurred with the server. We apologize for the inconvenience.`,
-      'error'
-    );
-   }
+  async ngOnInit() {
+    try {
+      this.categories = await this.categoriesService.getAll();
+      this.arrayProducts= await this.productsService.getAll();
+    } catch (error: any) {
+      console.log(error.message);
+      Swal.fire(
+        'Error!',
+        `An error has occurred with the server. We apologize for the inconvenience.`,
+        'error'
+      );
+    }
   }
 
- 
-
-  async loadCategory(category_id: number){
-  try {
-    this.arrayProducts= await this.productsService.getProductsByCategory(category_id);
-  } catch (error) {
-    Swal.fire(
-      'Error!',
-      `An error has occurred with the server. We apologize for the inconvenience.`,
-      'error'
-    );
+  async loadCategory(category_id: number) {
+    try {
+      this.arrayProducts = await this.productsService.getProductsByCategory(
+        category_id
+      );
+      this.selectedCategory = await this.categoriesService.getById(category_id);
+    } catch (error) {
+      Swal.fire(
+        'Error!',
+        `An error has occurred with the server. We apologize for the inconvenience.`,
+        'error'
+      );
+    }
   }
 }
