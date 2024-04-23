@@ -5,29 +5,17 @@ h1 {
     text-align: center;
     margin-bottom: 20px;
    
-
    
   }
-  .category-button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #6c6363;
-    color: #959090;
-    cursor: pointer;
-  }
   
-  .category-button:hover {
+  .categorybutton:hover {
     background-color: #cbdf88;
+    margin-top: auto;
+    
   }
-  #product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+
   
-  .product-card {
+  .card-product {
     width: 200px;
     margin: 10px;
     padding: 10px;
@@ -36,7 +24,49 @@ h1 {
     text-align: center;
   }
   
-  .product-card img {
+  .card-product {
     max-width: 100%;
     height: auto;
   }
+  .categorybutton {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #939da8;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card {
+    width: calc(25% - 10px);
+}
+
+  .categorybutton:hover {
+    background-color: #0056b3;
+  }
+
+  
+@media screen and (max-width:900px) {
+    .cards-wrapper .card {
+        width: calc(33.333% - 10px);
+    }
+}
+
+@media screen and (max-width:700px) {
+    .cards-wrapper .card {
+        width: calc(50% - 10px);
+    }
+}
+
+@media screen and (max-width:450px) {
+    .cards-wrapper .card {
+        width: 100%;
+    }
+}

@@ -8,6 +8,7 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 import { CreateCategoryComponent } from './pages/create-category/create-category.component';
 import { UpdateCategoryComponent } from './pages/update-category/update-category.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
+import { OffersComponent } from './pages/offers/offers.component';
 
 export const routes: Routes = [
   // HOME index.html
@@ -18,6 +19,7 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   {path: 'categories', component: CategoriesComponent},
+  {path: 'offers', component: OffersComponent},
 
   { path: 'products/create/new', component: ProductCreationComponent },
   { path: 'products/update/:product_id', component: UpdateProductComponent },
