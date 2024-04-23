@@ -22,7 +22,7 @@
                     <td>{{order.created_at}}</td>
                     <td>{{order.user_name}} {{order.user_last_name}}</td>
                     <!-- <td>order.status</td> -->
-                    <button class="btn" (click)="ngOnDelete(order.id)">X</button>
+                    <button class="delete btn btn-danger" (click)="ngOnDelete(order.id)">Delete</button>
                 </tr>
                 }
             </tbody>

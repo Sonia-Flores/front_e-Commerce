@@ -20,3 +20,9 @@
 .status {
     width: 20vw;
 }
+
+.delete {
+    color: white;
+    padding: 0.1px 5px;
+    background-color: red;
+}
