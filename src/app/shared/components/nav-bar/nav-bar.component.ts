@@ -19,13 +19,18 @@ export class NavBarComponent {
 
   usuariosService = inject(UsuariosService);
   ordersService = inject(OrdersService);
-  
+
   decodedToken: any = "";
   arrOrders: any = [];
   arrUsers: User[] = [];
   totalItems: number = 0;
-  
 
+
+
+  onClickLogout() {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('/login');
+  }
 
 
   async ngOnInit() {
@@ -35,20 +40,17 @@ export class NavBarComponent {
 
     }
 
-    if (!localStorage['token'] || this.decodedToken.role !== 'admin') {
-      this.router.navigateByUrl('/home');
+    // User
+    //   if (!localStorage['token'] || this.decodedToken.role !== 'admin') {
+    //     this.router.navigateByUrl('/home');
 
-    }
+    // }
 
     this.arrOrders = JSON.parse(localStorage.getItem('kart') || '[]');
 
     this.TotalItems()
-  }
 
-  logoutHandler() {
-    localStorage.removeItem('token');
-    this.router.navigateByUrl('/home');
-    location.reload();
+
   }
 
 
@@ -61,3 +63,7 @@ export class NavBarComponent {
 
 
 }
+
+
+
+

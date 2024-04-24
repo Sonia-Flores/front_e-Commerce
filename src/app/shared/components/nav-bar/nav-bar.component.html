@@ -23,8 +23,8 @@
 
             <ul class="navbar-nav ms-auto">
 
-
-                @if (decodedToken.role === 'admin') {
+                <!-- CHECKS if User is Admin -->
+                @if (usuariosService.isAdmin()) {
                 <div class="admin-container">
                     <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                         <a class="nav-link" [routerLink]="['/dashboard']">
@@ -35,8 +35,8 @@
                 </div>
                 }
 
-
-                @if (!decodedToken) {
+                <!-- CHECKS if User is NOT Logged -->
+                @if (!usuariosService.isLogged()) {
                 <div class="login-container">
                     <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                         <a class="nav-link" [routerLink]="['/login']">
@@ -47,7 +47,8 @@
                 </div>
                 }
 
-                @if (!decodedToken) {
+                <!-- CHECKS if User is NOT Logged -->
+                @if (!usuariosService.isLogged()){
                 <div class="register-container">
                     <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                         <a class="nav-link" [routerLink]="['/register']">
@@ -58,12 +59,11 @@
                 </div>
                 }
 
-
-
-                @if (decodedToken) {
+                <!-- OnClick LOGOUT -->
+                @if (usuariosService.isLogged()) {
                 <div class="logout-container">
                     <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                        <a class="nav-link logout" (click)="logoutHandler()">
+                        <a class="nav-link logout" (click)="onClickLogout()">
 
                             <i class="fa-solid fa-right-from-bracket mx-2  d-none d-md-inline mx-2"></i>
                             <span class="register-text">Logout</span>
