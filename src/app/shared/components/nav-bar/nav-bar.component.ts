@@ -22,6 +22,11 @@ export class NavBarComponent {
   arrOrders: any = [];
   arrUsers: User[] = [];
 
+  onClickLogout() {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('/login');
+  }
+
 
   async ngOnInit() {
 
@@ -30,15 +35,16 @@ export class NavBarComponent {
 
     }
 
-    if (!localStorage['token'] || this.decodedToken.role !== 'admin') {
-      this.router.navigateByUrl('/home');
+    // User
+    //   if (!localStorage['token'] || this.decodedToken.role !== 'admin') {
+    //     this.router.navigateByUrl('/home');
 
-    }
-  }
+    //   }
+    // }
 
-  logoutHandler() {
-    localStorage.removeItem('token');
-    this.router.navigateByUrl('/home');
-    location.reload();
   }
 }
+
+
+
+

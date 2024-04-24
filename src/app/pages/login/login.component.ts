@@ -50,7 +50,9 @@ export class LoginComponent {
 
           if (decodedToken.role === "admin") {
             this.route = '/dashboard';
-            location.reload();
+            // setTimeout(() => {
+            //   location.reload();
+            // }, 3000);
           }
 
           Swal.fire({
@@ -59,7 +61,9 @@ export class LoginComponent {
           });
           this.formularioLogin.reset();
           this.router.navigateByUrl(this.route);
-          location.reload();
+          // setTimeout(() => {
+          //   location.reload();
+          // }, 3000);
 
         } else {
           Swal.fire({
@@ -71,6 +75,7 @@ export class LoginComponent {
         }
 
       } catch (error) {
+        console.log(error);
         Swal.fire('Error', 'Se ha producido un error.');
         this.formularioLogin.reset();
       }
