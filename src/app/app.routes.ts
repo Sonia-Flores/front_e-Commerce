@@ -22,13 +22,13 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: AdminDashboardComponent, children: adminRoutes },
-  {path: 'categories', component: CategoriesComponent},
-  {path: 'offers', component: OffersComponent},
-
+  { path: 'categories', component: CategoriesComponent},
+  { path: 'offers', component: OffersComponent},
   { path: 'products/create/new', component: ProductCreationComponent },
   { path: 'products/update/:product_id', component: UpdateProductComponent },
   { path: 'categories/create', component: CreateCategoryComponent },
   { path: 'categories/update', component: UpdateCategoryComponent },
+   { path: 'categories/:category_id', component: CategoriesComponent},
 
   { path: 'products/:idproduct', component: ProductDetailComponent },
 
@@ -37,12 +37,4 @@ export const routes: Routes = [
   { path: 'categories/update/:category_id', component: UpdateCategoryComponent },
 
   { path: '**', redirectTo: '/home' }
-
-  // api/categories/:categoryId
-  // api/products/favorites
-  // api/products/featured
-
-  // api/orders/new
-
-  // { path: '', redirectTo: '/' }
 ];

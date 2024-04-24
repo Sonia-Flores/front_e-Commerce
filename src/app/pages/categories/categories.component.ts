@@ -7,6 +7,7 @@ import { CategoriesService } from '../../services/categories.service';
 import { CardProductComponent } from '../../components/products/card-product/card-product.component';
 import { ListProductComponent } from '../../components/products/list-product/list-product.component';
 import Swal from 'sweetalert2';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -16,6 +17,7 @@ import Swal from 'sweetalert2';
   styleUrl: './categories.component.css',
 })
 export class CategoriesComponent {
+  activatedRoute = inject(ActivatedRoute)
   productsService = inject(ProductsService);
   categoriesService = inject(CategoriesService);
   // ordersService = inject(OrdersService)
@@ -30,17 +32,24 @@ export class CategoriesComponent {
   $index: any;
 
   async ngOnInit() {
-    try {
+
+    this.activatedRoute.params.subscribe(async params => {
+      if(!params['category_id']){
+        try {
+          this.arrayProducts= await this.productsService.getAll();
+        } catch (error: any) {
+          console.log(error.message);
+          Swal.fire(
+            'Error!',
+            `An error has occurred with the server. We apologize for the inconvenience.`,
+            'error'
+          );
+        }
+      }else {
+        this.loadCategory(params['category_id'])
+      }
       this.categories = await this.categoriesService.getAll();
-      this.arrayProducts= await this.productsService.getAll();
-    } catch (error: any) {
-      console.log(error.message);
-      Swal.fire(
-        'Error!',
-        `An error has occurred with the server. We apologize for the inconvenience.`,
-        'error'
-      );
-    }
+    });
   }
 
   async loadCategory(category_id: number) {
@@ -56,5 +65,7 @@ export class CategoriesComponent {
         'error'
       );
     }
+  
   }
+
 }
