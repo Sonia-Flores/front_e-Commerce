@@ -79,7 +79,7 @@
   </div>
 
   <div class="d-flex justify-content-center m-5 mb-4">
-    <button class="btn btn-primary catbutton" [routerLink]="['/categories']">
+    <button class="btn btn-primary catbutton" (click)="loadCategory(category.id)">
       {{ category.title }}
       <i class="fa-solid fa-arrow-right arrowStyle"></i>
     </button>
