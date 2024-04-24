@@ -4,9 +4,10 @@ import { Product } from '../../../interfaces/product.interface';
 import { ProductsService } from '../../../services/products.service';
 import { CategoriesService } from '../../../services/categories.service';
 import { SpacerComponent } from '../../spacer/spacer.component';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Category } from '../../../interfaces/category.interface';
 import Swal from 'sweetalert2';
+import { CategoriesComponent } from '../../../pages/categories/categories.component';
 
 @Component({
   selector: 'list-product',
@@ -16,6 +17,8 @@ import Swal from 'sweetalert2';
   styleUrl: './list-product.component.css',
 })
 export class ListProductComponent {
+  router = inject(Router);
+
   arrProducts: Product[] = [];
   arrProductsInit: Product[] = [];
   prodByCats: Product[] = [];
@@ -82,4 +85,8 @@ export class ListProductComponent {
       .concat(products)
       .slice(-4);
   }
+
+  async loadCategory(category_id: number) {
+    this.router.navigateByUrl(`/categories/`+category_id);
+    }
 }
