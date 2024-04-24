@@ -25,11 +25,19 @@ export class OrdersService {
     create(newOrder: any) {
         return firstValueFrom(this.httpClient.post(`${this.baseUrl}/new`, newOrder));
     }
+
+    sendOrder(order: any) {
+        return firstValueFrom(this.httpClient.post(`${this.baseUrl}/cart`, order));
+    }
+
     deleteOrder(order_id: number) {
-        return firstValueFrom(this.httpClient.delete(`${this.baseUrl}/${order_id}` ));
+        return firstValueFrom(this.httpClient.delete(`${this.baseUrl}/${order_id}`));
     }
     getTotalItems() {
         const orders = JSON.parse(localStorage.getItem('kart') || '[]');
         return orders.length
     }
+
+
+
 }
