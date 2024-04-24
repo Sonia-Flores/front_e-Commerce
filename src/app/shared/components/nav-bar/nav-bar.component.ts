@@ -3,6 +3,7 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 import { User } from '../../../data/interfaces/usuario.interface';
 import { UsuariosService } from '../../../services/usuarios.service';
+import { OrdersService } from '../../../services/orders.service';
 
 
 @Component({
@@ -17,10 +18,14 @@ export class NavBarComponent {
   router = inject(Router);
 
   usuariosService = inject(UsuariosService);
-
+  ordersService = inject(OrdersService);
+  
   decodedToken: any = "";
   arrOrders: any = [];
   arrUsers: User[] = [];
+  totalItems: number = 0;
+  
+
 
 
   async ngOnInit() {
@@ -34,6 +39,10 @@ export class NavBarComponent {
       this.router.navigateByUrl('/home');
 
     }
+
+    this.arrOrders = JSON.parse(localStorage.getItem('kart') || '[]');
+
+    this.TotalItems()
   }
 
   logoutHandler() {
@@ -41,4 +50,14 @@ export class NavBarComponent {
     this.router.navigateByUrl('/home');
     location.reload();
   }
+
+
+
+  TotalItems() {
+    this.totalItems = this.arrOrders.length;
+  }
+
+
+
+
 }

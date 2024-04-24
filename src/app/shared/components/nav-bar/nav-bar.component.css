@@ -45,3 +45,23 @@ li {
 .logout {
   cursor: pointer;
 }
+
+h5 {
+  background-color: var(--lightBlue);
+  color: var(--darkColor);
+  font-family: 'Roboto';
+  color: var(--darkColor);
+
+  top: 35px;
+  right: 60px;
+
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;  
+  padding: 3px;
+
+}
+
+.isDisabled {
+  display: none;
+}

@@ -28,4 +28,8 @@ export class OrdersService {
     deleteOrder(order_id: number) {
         return firstValueFrom(this.httpClient.delete(`${this.baseUrl}/${order_id}` ));
     }
+    getTotalItems() {
+        const orders = JSON.parse(localStorage.getItem('kart') || '[]');
+        return orders.length
+    }
 }
