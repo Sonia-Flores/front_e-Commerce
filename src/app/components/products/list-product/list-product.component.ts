@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { CardProductComponent } from '../card-product/card-product.component';
+import { Router, RouterLink } from '@angular/router';
+import Swal from 'sweetalert2';
+declare const bootstrap: any;
 import { Product } from '../../../interfaces/product.interface';
+import { CardProductComponent } from '../card-product/card-product.component';
+import { SpacerComponent } from '../../spacer/spacer.component';
 import { ProductsService } from '../../../services/products.service';
 import { CategoriesService } from '../../../services/categories.service';
-import { SpacerComponent } from '../../spacer/spacer.component';
-import { Router, RouterLink } from '@angular/router';
 import { Category } from '../../../interfaces/category.interface';
-import Swal from 'sweetalert2';
-import { CategoriesComponent } from '../../../pages/categories/categories.component';
 
 @Component({
   selector: 'list-product',
@@ -51,6 +51,12 @@ export class ListProductComponent {
     }
   }
 
+  ngAfterContentInit() {
+    const myCarousel = document.querySelector('#carouselProducts');
+    var carousel = new bootstrap.Carousel(myCarousel)
+
+  }
+
   //  FEATURED Products
   async arrangeProducts(): Promise<void> {
     const productsByGroup = 4;
@@ -87,6 +93,6 @@ export class ListProductComponent {
   }
 
   async loadCategory(category_id: number) {
-    this.router.navigateByUrl(`/categories/`+category_id);
-    }
+    this.router.navigateByUrl(`/categories/` + category_id);
+  }
 }

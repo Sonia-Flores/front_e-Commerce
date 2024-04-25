@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { jwtDecode } from 'jwt-decode';
+declare const bootstrap: any;
 import { Product } from '../../interfaces/product.interface';
 import { Comment } from '../../interfaces/comments.interface';
 import { Category } from '../../interfaces/categories.interface';
@@ -9,9 +11,6 @@ import { ProductsService } from '../../services/products.service';
 import { CategoriesService } from '../../services/categories.service';
 import { CommentsService } from '../../services/comments.service';
 import { FavoritesService } from '../../services/favorites.service';
-import { switchAll } from 'rxjs';
-import { formatCurrency } from '@angular/common';
-import { jwtDecode } from 'jwt-decode';
 
 @Component({
     selector: 'app-product-detail',
@@ -22,16 +21,15 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class ProductDetailComponent {
 
-    formularioComment: FormGroup;
+    router = inject(Router);
+    activatedRoute = inject(ActivatedRoute);
+
 
     categoriesService = inject(CategoriesService);
     commentService = inject(CommentsService);
     productsService = inject(ProductsService);
     favoritesService = inject(FavoritesService);
-    activatedRoute = inject(ActivatedRoute);
-
-
-    router = inject(Router);
+    formularioComment: FormGroup;
 
     product: Product | null = null;
     arrComments: Comment[] = [];
@@ -39,40 +37,8 @@ export class ProductDetailComponent {
     user_id: number = 0;
     kart: string | null = "";
     arrKart: Product[] = [];
-
     favorite_id: number = 0;
     isFavorite: boolean = false;
-
-
-    async onClickFavorite() {
-
-        // TODO: make this work
-
-        if (!this.isFavorite) {
-            this.isFavorite = true;
-            const newFavorite = {
-                users_id: this.user_id,
-                products_id: this.product?.id
-            }
-
-            try {
-
-                const favorite: any = await this.favoritesService.createFavorite(newFavorite);
-                this.favorite_id = favorite.id;
-
-            } catch (error: any) {
-            }
-        } else {
-            this.isFavorite = false;
-            try {
-                const response = await this.favoritesService.deleteFavorite(this.favorite_id);
-
-            } catch (error: any) {
-            }
-        }
-
-    }
-
 
     ngOnInit() {
 
@@ -144,6 +110,41 @@ export class ProductDetailComponent {
 
     }
 
+    ngAfterContentInit() {
+        const myCarousel = document.querySelector('#commentsCarousel');
+        var carousel = new bootstrap.Carousel(myCarousel)
+
+    }
+
+    async onClickFavorite() {
+
+        // TODO: make this work
+
+        if (!this.isFavorite) {
+            this.isFavorite = true;
+            const newFavorite = {
+                users_id: this.user_id,
+                products_id: this.product?.id
+            }
+
+            try {
+
+                const favorite: any = await this.favoritesService.createFavorite(newFavorite);
+                this.favorite_id = favorite.id;
+
+            } catch (error: any) {
+            }
+        } else {
+            this.isFavorite = false;
+            try {
+                const response = await this.favoritesService.deleteFavorite(this.favorite_id);
+
+            } catch (error: any) {
+            }
+        }
+
+    }
+
     // Coment Box
 
     constructor() {
@@ -185,6 +186,7 @@ export class ProductDetailComponent {
                     text: "Thanks for your time",
                     icon: "success"
                 });
+                this.arrComments = await this.commentService.getCommentsByProductId(this.product?.id);
                 this.formularioComment.reset();
             } catch (error) {
                 Swal.fire({
