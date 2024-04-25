@@ -8,11 +8,13 @@ import { SpacerComponent } from '../../spacer/spacer.component';
 import { ProductsService } from '../../../services/products.service';
 import { CategoriesService } from '../../../services/categories.service';
 import { Category } from '../../../interfaces/category.interface';
+import { JsonPipe } from '@angular/common';
+
 
 @Component({
   selector: 'list-product',
   standalone: true,
-  imports: [CardProductComponent, SpacerComponent, RouterLink],
+  imports: [CardProductComponent, SpacerComponent, RouterLink, JsonPipe],
   templateUrl: './list-product.component.html',
   styleUrl: './list-product.component.css',
 })
@@ -24,6 +26,7 @@ export class ListProductComponent {
   prodByCats: Product[] = [];
   productsGroups: Product[][] = [];
   allCategories: Category[] = [];
+  finalCategories: Category[] = [];
   productsByCategory: { [categoryId: number]: Product[] } = {};
 
   category: Category | null = null;
@@ -33,7 +36,7 @@ export class ListProductComponent {
 
   async ngOnInit() {
     // FEATURED Products
-    this.arrangeProducts();
+    await this.arrangeProducts();
 
     // All Categories
     this.allCategories = await this.categoriesService.getAllCategories();
@@ -43,12 +46,19 @@ export class ListProductComponent {
       const categoryProducts = await this.productsService.getProductsByCategory(
         category.id
       );
+
       if (categoryProducts.length > 0) {
         // Check if categoryProducts array is not empty
         this.prodByCats = categoryProducts;
         this.distributeProducts(category.id);
+      } else {
+
       }
     }
+    for (const key in this.productsByCategory) {
+      this.finalCategories.push(this.allCategories.find(cat => cat.id === Number(key))!);
+    }
+
   }
 
   ngAfterContentInit() {
@@ -83,13 +93,15 @@ export class ListProductComponent {
       (product) => product.categories_id === categoryId
     );
 
-    if (!this.productsByCategory[categoryId]) {
-      this.productsByCategory[categoryId] = []; // Si la categoría no existe en el objeto, inicialízala como un arreglo vacío
-    }
+    if (products.length !== 0) {
+      if (!this.productsByCategory[categoryId]) {
+        this.productsByCategory[categoryId] = []; // Si la categoría no existe en el objeto, inicialízala como un arreglo vacío
+      }
 
-    this.productsByCategory[categoryId] = this.productsByCategory[categoryId]
-      .concat(products)
-      .slice(-4);
+      this.productsByCategory[categoryId] = this.productsByCategory[categoryId]
+        .concat(products)
+        .slice(-4);
+    }
   }
 
   async loadCategory(category_id: number) {
