@@ -6,7 +6,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 
 import Swal from 'sweetalert2';
 
@@ -17,7 +17,7 @@ import { Category } from '../../interfaces/categories.interface';
 @Component({
   selector: 'app-update-product',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, RouterLink],
   templateUrl: './update-product.component.html',
   styleUrl: './update-product.component.css',
 })
