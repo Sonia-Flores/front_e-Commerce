@@ -6,7 +6,6 @@
         <form
           class="miForm col-12 col-md-6 mt-4"
           [formGroup]="formularioUpdate"
-          (ngSubmit)="onSubmit()"
         >
           <div class="mb-3">
             <label class="form-label">Title</label>
@@ -65,13 +64,16 @@
               <option value="1">Featured</option>
             </select>
           </div>
-
+<div class="navigate">
           <input
             type="Submit"
             value="Send"
             class="btn"
             [disabled]="!formularioUpdate.valid"
+            (click)="onSubmit()"
           />
+          <button class="btn ms-2" [routerLink]="['/dashboard/products']" >Volver</button>
+        </div>
         </form>
 
         <div

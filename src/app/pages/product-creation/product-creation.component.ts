@@ -6,7 +6,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 import { ProductsService } from '../../services/products.service';
 import { CategoriesService } from '../../services/categories.service';
@@ -15,7 +15,7 @@ import { Category } from '../../interfaces/categories.interface';
 @Component({
   selector: 'app-product-creation',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, RouterLink],
   templateUrl: './product-creation.component.html',
   styleUrl: './product-creation.component.css',
 })
