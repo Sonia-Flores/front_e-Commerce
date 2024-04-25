@@ -57,7 +57,6 @@ export class UsuariosService {
     }
     // El rol del usuario está codificado dentro del TOKEN
     const decoded: JwtPayloadCustom = jwtDecode(localStorage.getItem('token')!);
-    console.log(decoded);
     return (decoded.role === 'admin');
   }
 }

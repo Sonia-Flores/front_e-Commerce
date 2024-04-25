@@ -58,8 +58,6 @@ export class UpdateCategoryComponent {
       this.router.navigateByUrl('/dashboard/categories');
     }
     catch (error) {
-      console.log(error);
-
       Swal.fire(
         'Error!',
         `An error has occurred with the server. We apologize for the inconvenience.`,

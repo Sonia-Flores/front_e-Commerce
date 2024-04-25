@@ -38,7 +38,7 @@ export class CategoriesComponent {
         try {
           this.arrayProducts= await this.productsService.getAll();
         } catch (error: any) {
-          console.log(error.message);
+      
           Swal.fire(
             'Error!',
             `An error has occurred with the server. We apologize for the inconvenience.`,
