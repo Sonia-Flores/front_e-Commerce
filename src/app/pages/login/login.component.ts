@@ -75,7 +75,7 @@ export class LoginComponent {
         }
 
       } catch (error) {
-        console.log(error);
+  
         Swal.fire('Error', 'Se ha producido un error.');
         this.formularioLogin.reset();
       }
