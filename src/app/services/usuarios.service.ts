@@ -3,6 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { User } from '../data/interfaces/usuario.interface';
 import { JwtPayload, jwtDecode } from 'jwt-decode';
+import { environment } from '../../environments/environment';
 
 export type JwtPayloadCustom = JwtPayload & { role: string, id: string };
 
@@ -21,7 +22,8 @@ type LoginResponse = {
   providedIn: 'root',
 })
 export class UsuariosService {
-  private baseUrl = 'http://localhost:3000/api/users';
+  
+  private baseUrl = `${environment.apiUrl}/users`;
 
   private httpClient = inject(HttpClient);
 

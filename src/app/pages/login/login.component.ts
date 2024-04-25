@@ -50,9 +50,6 @@ export class LoginComponent {
 
           if (decodedToken.role === "admin") {
             this.route = '/dashboard';
-            // setTimeout(() => {
-            //   location.reload();
-            // }, 3000);
           }
 
           Swal.fire({
@@ -61,23 +58,15 @@ export class LoginComponent {
           });
           this.formularioLogin.reset();
           this.router.navigateByUrl(this.route);
-          // setTimeout(() => {
-          //   location.reload();
-          // }, 3000);
-
         } else {
           Swal.fire({
             title: 'Error',
             text: 'The email and/or password are incorrect',
             icon: 'error',
           });
-          this.formularioLogin.reset();
         }
-
       } catch (error) {
-  
         Swal.fire('Error', 'Se ha producido un error.');
-        this.formularioLogin.reset();
       }
     } else {
       Swal.fire('Error', 'Please complete the form correctly.', 'error');
@@ -85,23 +74,17 @@ export class LoginComponent {
 
   }
 
-
-
   //!   DEMO MODE
-
   user() {
     const user: any = { email: 'ashley@example.com', password: '123456' };
     this.formularioLogin.setValue(user);
     this.onSubmit();
-
   }
-
   admin() {
     const user: any = { email: 'jennifer@example.com', password: '12345' };
     this.formularioLogin.setValue(user);
     this.onSubmit();
   }
-
   toggleDemoMode() {
     this.demoMode = !this.demoMode;
   }

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 
 import { Category } from '../../interfaces/categories.interface';
@@ -9,7 +9,7 @@ import { CategoriesService } from '../../services/categories.service';
 @Component({
   selector: 'app-update-category',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './update-category.component.html',
   styleUrl: './update-category.component.css'
 })

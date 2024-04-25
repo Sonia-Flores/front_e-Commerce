@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CategoriesService } from '../../services/categories.service';
 @Component({
   selector: 'app-create-category',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './create-category.component.html',
   styleUrl: './create-category.component.css'
 })
@@ -23,8 +23,7 @@ router=inject(Router)
 
 constructor(){
   this.categoryCreate = new FormGroup({
-    title: new FormControl(null, [Validators.required]),
-  description: new FormControl(null, [Validators.required])
+    title: new FormControl(null, [Validators.required])
   })
 }
 
