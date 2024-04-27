@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
 import { firstValueFrom } from "rxjs";
+import { environment } from "../../environments/environment";
 
 
 
@@ -9,7 +10,7 @@ import { firstValueFrom } from "rxjs";
 })
 export class FavoritesService {
 
-  private baseUrl = 'http://localhost:3000/api/favorites';
+  private baseUrl = `${environment.apiUrl}/favorites`;
 
   private httpClient = inject(HttpClient);
 
