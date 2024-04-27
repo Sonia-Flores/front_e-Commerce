@@ -2,13 +2,14 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
 import { firstValueFrom } from "rxjs";
 import { Category } from "../interfaces/categories.interface";
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriesService {
 
-  private baseUrl = 'http://localhost:3000/api/categories';
+  private baseUrl = `${environment.apiUrl}/categories`;
 
   private httpClient = inject(HttpClient);
 
